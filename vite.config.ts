@@ -8,5 +8,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  base: '/Menu-virtual-LaPequena-Habana/',
 })
 

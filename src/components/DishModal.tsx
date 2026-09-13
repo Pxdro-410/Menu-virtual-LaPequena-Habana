@@ -3,7 +3,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Clock, Users, CheckCircle2, MessageCircle, Utensils, Sparkles, Wine } from 'lucide-react';
 import type { Dish } from '../types/menu';
-import { getWhatsAppDishUrl } from '../lib/utils';
+import { getWhatsAppDishUrl, getAssetUrl } from '../lib/utils';
 
 interface DishModalProps {
   dish: Dish | null;
@@ -54,7 +54,7 @@ export const DishModal: React.FC<DishModalProps> = ({ dish, isOpen, onClose }) =
                   {/* Left Column (Desktop) / Top Section (Mobile): Dish Image */}
                   <div className="relative w-full md:w-1/2 aspect-[16/10] md:aspect-auto md:min-h-[480px] bg-stone-900 overflow-hidden shrink-0">
                     <img
-                      src={dish.image}
+                      src={getAssetUrl(dish.image)}
                       alt={dish.name}
                       className="w-full h-full object-cover object-center"
                     />

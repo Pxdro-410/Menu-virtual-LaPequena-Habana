@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { Eye, Clock, Sparkles } from 'lucide-react';
 import type { Dish } from '../types/menu';
-import { cn } from '../lib/utils';
+import { cn, getAssetUrl } from '../lib/utils';
 
 interface DishCardProps {
   dish: Dish;
@@ -44,7 +44,7 @@ export const DishCard: React.FC<DishCardProps> = ({ dish, onSelect }) => {
       {/* Image Container with Zoom effect */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-100">
         <img
-          src={dish.image}
+          src={getAssetUrl(dish.image)}
           alt={dish.name}
           loading="lazy"
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"

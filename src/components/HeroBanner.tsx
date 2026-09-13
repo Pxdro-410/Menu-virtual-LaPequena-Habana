@@ -1,5 +1,6 @@
 import React from 'react';
 import { Utensils, Award, Info } from 'lucide-react';
+import { getAssetUrl } from '../lib/utils';
 
 export const HeroBanner: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ export const HeroBanner: React.FC = () => {
       {/* Cuban Flag diffused watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <img
-          src="/images/cuban-flag.png"
+          src={getAssetUrl('/images/cuban-flag.png')}
           alt="Bandera de Cuba"
           className="w-full max-w-4xl h-full object-contain opacity-[0.15] scale-200 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_75%)]"
         />
