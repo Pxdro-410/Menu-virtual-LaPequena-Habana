@@ -20,9 +20,9 @@ export const HeroBanner: React.FC = () => {
       <div className="relative max-w-5xl mx-auto text-center">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-[#d61327]/20 text-[#fca5a5] border border-[#d61327]/40 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
-          <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+
           <span>De cuba para el mundo entero</span>
-          <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+
         </div>
 
         {/* Main Title */}
@@ -31,7 +31,7 @@ export const HeroBanner: React.FC = () => {
         </h1>
 
         {/* Subtitle */}
-        <p className="max-w-2xl mx-auto text-stone-300 text-sm sm:text-base lg:text-lg font-light leading-relaxed mb-6">
+        <p className="max-w-2xl mx-auto text-stone-100 text-sm sm:text-base lg:text-lg font-light leading-relaxed mb-6">
           Bienvenido a nuestro menú virtual. Explora nuestras recetas históricas y más comunes de la isla, preparadas en el momento con ingredientes frescos y nuestra sazón de la casa.
         </p>
 

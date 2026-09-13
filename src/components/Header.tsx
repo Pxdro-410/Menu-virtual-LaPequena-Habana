@@ -102,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
               className="hidden md:inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white text-sm font-semibold px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 shrink-0"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
-              <span>WhatsApp</span>
+              <span>Eventos</span>
             </a>
           </div>
 
