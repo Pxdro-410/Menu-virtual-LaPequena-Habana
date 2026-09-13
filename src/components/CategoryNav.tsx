@@ -45,7 +45,7 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
   };
 
   return (
-    <nav className="sticky top-[69px] sm:top-[77px] z-30 bg-[#fcfafa]/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm py-2.5 transition-all">
+    <nav className="sticky top-[53px] sm:top-[77px] z-30 bg-[#fcfafa]/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm py-2 sm:py-2.5 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative flex items-center">
         
         {/* Left scroll chevron */}

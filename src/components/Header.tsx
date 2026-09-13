@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Search, X, MessageCircle, MapPin, Clock } from 'lucide-react';
-import { getWhatsAppGeneralUrl } from '../lib/utils';
+import { getWhatsAppGeneralUrl, cn } from '../lib/utils';
 
 interface HeaderProps {
   searchQuery: string;
@@ -8,13 +8,15 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+
   return (
     <header className="w-full bg-[#111942] text-[#fcfafa] border-b border-[#1c275c] shadow-md transition-all sticky top-0 z-40">
-      {/* Top micro banner */}
-      <div className="bg-[#0a0f28] py-1.5 px-4 text-xs tracking-wide text-stone-300 border-b border-white/5">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center space-x-4">
-            <span className="flex items-center gap-1 text-stone-100/90">
+      {/* Top micro banner (Desktop & Tablet only) */}
+      <div className="hidden sm:block bg-[#0a0f28] py-1 px-3 sm:px-4 text-[11px] sm:text-xs tracking-wide text-stone-300 border-b border-white/5">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          <div className="flex items-center space-x-3">
+            <span className="flex items-center gap-1 text-stone-100/90 font-medium">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               Abierto Hoy
             </span>
@@ -25,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
             </span>
           </div>
 
-          <div className="flex items-center space-x-3 text-xs">
+          <div className="flex items-center space-x-3">
             <a
               href="https://www.google.com/maps/place/Campos+de+Softbol+CDAG/@14.5998309,-90.4994541,17z/data=!4m6!3m5!1s0x8589a3a555d64e15:0x522e3f45ac4b9335!8m2!3d14.5998153!4d-90.4971474!16s%2Fg%2F11g6j9v9pb?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
@@ -36,58 +38,74 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
               <MapPin className="w-3.5 h-3.5 text-[#d61327]" />
               Zona 15, Campos CDAG, Guatemala
             </a>
-
           </div>
         </div>
       </div>
 
       {/* Main navigation & brand */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-3.5">
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
 
           {/* Logo & Identity */}
-          <div className="flex items-center justify-between">
-            <a href="#" className="flex items-center gap-3 group">
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#d61327] to-[#8f1b27] flex items-center justify-center shadow-lg border-2 border-amber-400/40 group-hover:scale-105 transition-transform duration-300">
-                <span className="text-white font-quintessential text-2xl font-bold tracking-wider">PH</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-quintessential text-2xl sm:text-3xl font-bold text-[#fcfafa] tracking-wide leading-none drop-shadow-sm">
-                  La Pequeña Habana
-                </span>
-                <span className="font-old-standard text-xs sm:text-sm text-amber-200/90 tracking-widest uppercase mt-0.5">
-                  Restaurante & Sazón Cubana
-                </span>
-              </div>
+          <a href="#" className="flex items-center gap-2 sm:gap-3 group shrink-0">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#d61327] to-[#8f1b27] flex items-center justify-center shadow-md border-2 border-amber-400/40 group-hover:scale-105 transition-transform duration-300">
+              <span className="text-white font-quintessential text-xl sm:text-2xl font-bold tracking-wider">PH</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-quintessential text-lg sm:text-2xl md:text-3xl font-bold text-[#fcfafa] tracking-wide leading-none drop-shadow-sm">
+                La Pequeña Habana
+              </span>
+              <span className="font-old-standard text-[10px] sm:text-xs md:text-sm text-amber-200/90 tracking-widest uppercase mt-0.5">
+                Restaurante & Sazón Cubana
+              </span>
+            </div>
+          </a>
+
+          {/* Mobile Icon-only Actions: Lupa, Ubicación, WhatsApp */}
+          <div className="flex items-center gap-1.5 md:hidden">
+            {/* Lupa (Buscar) */}
+            <button
+              type="button"
+              onClick={() => setIsMobileSearchOpen((prev) => !prev)}
+              className={cn(
+                "w-8 h-8 rounded-full flex items-center justify-center transition-all active:scale-95 shadow-sm border border-white/15",
+                isMobileSearchOpen || searchQuery
+                  ? "bg-[#d61327] text-white"
+                  : "bg-[#1c275c] text-stone-200 hover:text-white"
+              )}
+              aria-label="Buscar platillos"
+              title="Buscar platillos"
+            >
+              <Search className="w-3.5 h-3.5" />
+            </button>
+
+            {/* Ubicación (Pin Maps) */}
+            <a
+              href="https://www.google.com/maps/place/Campos+de+Softbol+CDAG/@14.5998309,-90.4994541,17z/data=!4m6!3m5!1s0x8589a3a555d64e15:0x522e3f45ac4b9335!8m2!3d14.5998153!4d-90.4971474!16s%2Fg%2F11g6j9v9pb?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full bg-[#1c275c] hover:bg-[#d61327] text-white flex items-center justify-center transition-all active:scale-95 shadow-sm border border-white/15"
+              aria-label="Ver ubicación en Google Maps"
+              title="Encuéntranos en Google Maps"
+            >
+              <MapPin className="w-3.5 h-3.5 text-[#d61327] hover:text-white" />
             </a>
 
-            {/* Mobile action buttons (Ubicación + WhatsApp) */}
-            <div className="flex items-center gap-2 md:hidden">
-              <a
-                href="https://www.google.com/maps/place/Campos+de+Softbol+CDAG/@14.5998309,-90.4994541,17z/data=!4m6!3m5!1s0x8589a3a555d64e15:0x522e3f45ac4b9335!8m2!3d14.5998153!4d-90.4971474!16s%2Fg%2F11g6j9v9pb?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 bg-[#d61327] text-white text-xs font-semibold px-2.5 py-1.5 rounded-full shadow-md transition-transform active:scale-95"
-                title="Ver ubicación en Google Maps"
-              >
-                <MapPin className="w-3.5 h-3.5 text-white" />
-                <span>Ubicación</span>
-              </a>
-              <a
-                href={getWhatsAppGeneralUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md transition-transform active:scale-95"
-                title="Escríbenos por WhatsApp"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp</span>
-              </a>
-            </div>
+            {/* WhatsApp */}
+            <a
+              href={getWhatsAppGeneralUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center transition-all active:scale-95 shadow-sm"
+              aria-label="Escríbenos por WhatsApp"
+              title="WhatsApp"
+            >
+              <MessageCircle className="w-3.5 h-3.5 fill-white" />
+            </a>
           </div>
 
-          {/* Search bar & WhatsApp desktop button */}
-          <div className="flex items-center gap-3 flex-1 md:max-w-md lg:max-w-lg md:ml-auto">
+          {/* Desktop Search bar & Action Buttons (Visible on md+) */}
+          <div className="hidden md:flex items-center gap-3 flex-1 max-w-md lg:max-w-lg ml-auto">
             <div className="relative w-full">
               <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                 <Search className="h-4 w-4 text-stone-400" />
@@ -96,8 +114,8 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Buscar por platillo o ingrediente (ej. Ropa Vieja, Mojo, Queso)..."
-                className="w-full pl-10 pr-9 py-2 sm:py-2.5 bg-[#1c275c]/90 text-sm text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/15 focus:outline-none focus:ring-2 focus:ring-[#d61327] focus:border-transparent transition-all shadow-inner"
+                placeholder="Buscar por platillo o ingrediente..."
+                className="w-full pl-10 pr-9 py-2 bg-[#1c275c]/90 text-sm text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/15 focus:outline-none focus:ring-2 focus:ring-[#d61327] focus:border-transparent transition-all shadow-inner"
               />
               {searchQuery && (
                 <button
@@ -110,12 +128,12 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
               )}
             </div>
 
-            {/* Desktop WhatsApp button */}
+            {/* Desktop Eventos button */}
             <a
               href={getWhatsAppGeneralUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white text-sm font-semibold px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 shrink-0"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white text-sm font-semibold px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 shrink-0"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
               <span>Eventos</span>
@@ -126,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
               href="https://www.google.com/maps/place/Campos+de+Softbol+CDAG/@14.5998309,-90.4994541,17z/data=!4m6!3m5!1s0x8589a3a555d64e15:0x522e3f45ac4b9335!8m2!3d14.5998153!4d-90.4971474!16s%2Fg%2F11g6j9v9pb?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-2 bg-[#d61327] hover:bg-[#b01322] text-white text-sm font-semibold px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 shrink-0"
+              className="inline-flex items-center gap-2 bg-[#d61327] hover:bg-[#b01322] text-white text-sm font-semibold px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 shrink-0"
               title="Ver ubicación en Google Maps"
             >
               <MapPin className="w-4 h-4 text-white" />
@@ -135,7 +153,42 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
           </div>
 
         </div>
+
+        {/* Mobile Search Bar Dropdown */}
+        {isMobileSearchOpen && (
+          <div className="md:hidden mt-2 pt-2 border-t border-white/10 animate-in fade-in duration-200">
+            <div className="relative w-full">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Search className="h-3.5 w-3.5 text-stone-400" />
+              </div>
+              <input
+                type="text"
+                autoFocus
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Buscar por platillo o ingrediente..."
+                className="w-full pl-9 pr-8 py-1.5 bg-[#1c275c] text-xs text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#d61327]"
+              />
+              {searchQuery ? (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-stone-400 hover:text-white"
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
+              ) : (
+                <button
+                  onClick={() => setIsMobileSearchOpen(false)}
+                  className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-stone-400 hover:text-white"
+                >
+                  <X className="h-3.5 w-3.5" />
+                </button>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
 };
+
