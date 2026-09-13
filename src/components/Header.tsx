@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
           <div className="flex items-center justify-between">
             <a href="#" className="flex items-center gap-3 group">
               <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#d61327] to-[#8f1b27] flex items-center justify-center shadow-lg border-2 border-amber-400/40 group-hover:scale-105 transition-transform duration-300">
-                <span className="text-white font-quintessential text-2xl font-bold tracking-wider">H</span>
+                <span className="text-white font-quintessential text-2xl font-bold tracking-wider">PH</span>
               </div>
               <div className="flex flex-col">
                 <span className="font-quintessential text-2xl sm:text-3xl font-bold text-[#fcfafa] tracking-wide leading-none drop-shadow-sm">
