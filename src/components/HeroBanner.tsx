@@ -1,9 +1,9 @@
 import React from 'react';
-import { Sparkles, Utensils, Award, Info } from 'lucide-react';
+import { Utensils, Award, Info } from 'lucide-react';
 
 export const HeroBanner: React.FC = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#111942] via-[#16204f] to-[#111942] text-white py-10 sm:py-14 px-4 sm:px-6 lg:px-8 border-b border-[#1c275c]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#000000] via-[#16204f] to-[#000000] text-white py-10 sm:py-14 px-4 sm:px-6 lg:px-8 border-b border-[#1c275c]">
       {/* Decorative background subtle glow */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#d61327]/15 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#fcfafa]/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -13,7 +13,7 @@ export const HeroBanner: React.FC = () => {
         <img
           src="/images/cuban-flag.png"
           alt="Bandera de Cuba"
-          className="w-full max-w-4xl h-full object-contain opacity-[0.07] scale-200 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_75%)]"
+          className="w-full max-w-4xl h-full object-contain opacity-[0.15] scale-200 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_75%)]"
         />
       </div>
 

@@ -14,9 +14,9 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
       <div className="bg-[#0a0f28] py-1.5 px-4 text-xs tracking-wide text-stone-300 border-b border-white/5">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center space-x-4">
-            <span className="flex items-center gap-1 text-amber-400/90">
+            <span className="flex items-center gap-1 text-stone-100/90">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              Abierto Hoy - Cocina Auténtica Cubana
+              Abierto Hoy
             </span>
             <span className="hidden md:inline text-stone-400">|</span>
             <span className="hidden md:flex items-center gap-1 text-stone-300">
@@ -26,13 +26,17 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
           </div>
 
           <div className="flex items-center space-x-3 text-xs">
-            <span className="hidden sm:flex items-center gap-1 text-stone-300">
+            <a
+              href="https://www.google.com/maps/place/Campos+de+Softbol+CDAG/@14.5998309,-90.4994541,17z/data=!4m6!3m5!1s0x8589a3a555d64e15:0x522e3f45ac4b9335!8m2!3d14.5998153!4d-90.4971474!16s%2Fg%2F11g6j9v9pb?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-1 text-stone-300 hover:text-white transition-colors"
+              title="Ver ubicación en Google Maps"
+            >
               <MapPin className="w-3.5 h-3.5 text-[#d61327]" />
-              Guatemala 🇬🇹
-            </span>
-            <span className="bg-[#d61327]/20 text-[#fca5a5] border border-[#d61327]/40 px-2 py-0.5 rounded font-medium text-[11px]">
-              Precios en Quetzales (Q)
-            </span>
+              Zona 15, Campos CDAG, Guatemala
+            </a>
+
           </div>
         </div>
       </div>
@@ -57,17 +61,29 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
               </div>
             </a>
 
-            {/* Mobile WhatsApp link */}
-            <a
-              href={getWhatsAppGeneralUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="md:hidden inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md transition-transform active:scale-95"
-              title="Escríbenos por WhatsApp"
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp</span>
-            </a>
+            {/* Mobile action buttons (Ubicación + WhatsApp) */}
+            <div className="flex items-center gap-2 md:hidden">
+              <a
+                href="https://www.google.com/maps/place/Campos+de+Softbol+CDAG/@14.5998309,-90.4994541,17z/data=!4m6!3m5!1s0x8589a3a555d64e15:0x522e3f45ac4b9335!8m2!3d14.5998153!4d-90.4971474!16s%2Fg%2F11g6j9v9pb?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 bg-[#d61327] text-white text-xs font-semibold px-2.5 py-1.5 rounded-full shadow-md transition-transform active:scale-95"
+                title="Ver ubicación en Google Maps"
+              >
+                <MapPin className="w-3.5 h-3.5 text-white" />
+                <span>Ubicación</span>
+              </a>
+              <a
+                href={getWhatsAppGeneralUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md transition-transform active:scale-95"
+                title="Escríbenos por WhatsApp"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
           </div>
 
           {/* Search bar & WhatsApp desktop button */}
@@ -103,6 +119,18 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
             >
               <MessageCircle className="w-4 h-4 fill-white" />
               <span>Eventos</span>
+            </a>
+
+            {/* Desktop Google Maps Encuéntranos button */}
+            <a
+              href="https://www.google.com/maps/place/Campos+de+Softbol+CDAG/@14.5998309,-90.4994541,17z/data=!4m6!3m5!1s0x8589a3a555d64e15:0x522e3f45ac4b9335!8m2!3d14.5998153!4d-90.4971474!16s%2Fg%2F11g6j9v9pb?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex items-center gap-2 bg-[#d61327] hover:bg-[#b01322] text-white text-sm font-semibold px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 shrink-0"
+              title="Ver ubicación en Google Maps"
+            >
+              <MapPin className="w-4 h-4 text-white" />
+              <span>Encuéntranos</span>
             </a>
           </div>
 
