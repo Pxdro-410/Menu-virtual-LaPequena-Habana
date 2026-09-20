@@ -8,9 +8,9 @@ export const CATEGORIES: CategoryOption[] = [
     iconName: 'UtensilsCrossed'
   },
   {
-    id: 'platos-fuertes',
-    name: 'Platos Fuertes Tradicionales',
-    shortName: 'Platos Fuertes',
+    id: 'carnes',
+    name: 'Carnes & Especialidades',
+    shortName: 'Carnes',
     iconName: 'Flame'
   },
   {
@@ -20,27 +20,39 @@ export const CATEGORIES: CategoryOption[] = [
     iconName: 'Sandwich'
   },
   {
+    id: 'hamburguesas',
+    name: 'Hamburguesas Criollas',
+    shortName: 'Hamburguesas',
+    iconName: 'UtensilsCrossed'
+  },
+  {
+    id: 'tortillas',
+    name: 'Tortillas & Tacos',
+    shortName: 'Tortillas',
+    iconName: 'Layers'
+  },
+  {
     id: 'entradas',
-    name: 'Aperitivos & Entradas',
+    name: 'Entradas & Antojos',
     shortName: 'Entradas',
     iconName: 'Sparkles'
   },
   {
     id: 'guarniciones',
-    name: 'Guarniciones Criollas',
+    name: 'Guarniciones & Tostones',
     shortName: 'Guarniciones',
     iconName: 'Salad'
   },
   {
-    id: 'postres',
-    name: 'Postres Típicos',
-    shortName: 'Postres',
-    iconName: 'CakeSlice'
+    id: 'ensaladas',
+    name: 'Ensaladas',
+    shortName: 'Ensaladas',
+    iconName: 'Salad'
   },
   {
     id: 'bebidas',
-    name: 'Bebidas & Coctelería',
-    shortName: 'Bebidas & Cocteles',
+    name: 'Bebidas & Micheladas',
+    shortName: 'Bebidas',
     iconName: 'GlassWater'
   }
 ];

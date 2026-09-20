@@ -1,274 +1,836 @@
 [
   {
-    "id": "ropa-vieja",
-    "name": "Ropa Vieja Habanera Insignia",
-    "category": "platos-fuertes",
-    "price": 88.00,
-    "description": "Falda de res deshebrada cocinada a fuego lento durante 6 horas en una reducción criolla de tomates maduros, pimientos tricolores, cebollas caramelizadas, aceitunas y un toque de vino blanco. Acompañada de arroz blanco esponjoso, frijoles negros sazonados y maduros fritos.",
-    "image": "/images/ropa_vieja.jpg",
-    "badge": "Platillo Insignia",
-    "badgeType": "red",
-    "prepTime": "15-20 min",
-    "portion": "1 Persona generosa",
-    "ingredients": [
-      "Falda de res selecta deshebrada a mano",
-      "Sofrito criollo tradicional (cebolla, ajo, ají cachucha)",
-      "Pimientos rojos y verdes en juliana",
-      "Reducción de tomate y vino blanco",
-      "Arroz blanco jazmín",
-      "Frijoles negros colados",
-      "Plátanos maduros caramelizados"
-    ],
-    "tags": ["Especialidad", "Carne", "Tradicional", "Sin Gluten"],
-    "isPopular": true,
-    "pairing": "Recomendamos maridar con un Mojito Clásico de La Bodeguita o Cerveza Nacional bien helada."
-  },
-  {
-    "id": "vaca-frita",
-    "name": "Vaca Frita al Ajillo & Cítricos",
-    "category": "platos-fuertes",
-    "price": 92.00,
-    "description": "Carne de res tierna y deshebrada, marinada en jugo fresco de naranja agria, ajo macerado y orégano campesino, luego dorada a fuego vivo en sartén de hierro hasta obtener una textura crujiente por fuera y jugosa por dentro. Servida con corona de cebollas salteadas, moros y cristianos y maduros.",
-    "image": "/images/vaca_frita.jpg",
-    "badge": "Favorito del Chef",
-    "badgeType": "gold",
-    "prepTime": "15-20 min",
-    "portion": "1 Persona",
-    "ingredients": [
-      "Carne de res macerada en naranja agria",
-      "Ajo criollo en abundante cantidad",
-      "Cebollas blancas cortadas en aros crujientes",
-      "Aceite de oliva virgen extra",
-      "Congrí / Moros y Cristianos",
-      "Tajadas de plátano maduro"
-    ],
-    "tags": ["Crujiente", "Sin Gluten", "Carne"],
-    "isPopular": true,
-    "pairing": "Excelente con una limonada con hierbabuena fresca o una copa de vino tinto joven."
-  },
-  {
-    "id": "lechon-asado",
-    "name": "Lechón Asado en Caja China",
-    "category": "platos-fuertes",
-    "price": 95.00,
-    "description": "Cerdo tierno horneado lentamente al estilo campestre de Pinar del Río con piel crujiente (cuerito tostado). Bañado con mojo criollo de naranja agria, ajo asado, comino y orégano. Servido con yuca con mojo y moros y cristianos.",
-    "image": "/images/lechon_asado.jpg",
-    "badge": "Auténtico Pinar del Río",
-    "badgeType": "blue",
-    "prepTime": "20 min",
-    "portion": "1 Persona",
-    "ingredients": [
-      "Pernil de cerdo marinado por 24 horas",
-      "Mojo criollo de ajo frito y cítricos",
-      "Cuerito tostado crujiente",
-      "Cebolla morada encurtida ligera",
-      "Moros y Cristianos",
-      "Yuca con mojo de manteca y ajo"
-    ],
-    "tags": ["Especialidad", "Cerdo", "Mojo Criollo"],
-    "isPopular": true,
-    "pairing": "Disfrútalo con un Daiquirí Floridita o una refrescante malta fría."
-  },
-  {
-    "id": "sandwich-cubano",
-    "name": "Sándwich Cubano Tradicional",
+    "id": "pan-con-lechon",
+    "name": "Pan Con Lechón",
     "category": "sandwiches",
-    "price": 58.00,
-    "description": "El rey de la gastronomía habanera: pan de corteza crujiente y miga suave untado con mantequilla, relleno generosamente con lechón asado desmenuzado, jamón ahumado glaseado, queso suizo derretido, pepinillos encurtidos y mostaza amarilla clásica. Prensado a la plancha hasta quedar dorado y fundido.",
-    "image": "/images/sandwich_cubano.jpg",
-    "badge": "El Clásico Legendario",
+    "price": 45.0,
+    "description": "Clásico sándwich preparado al momento con carne de lechón tierno para lograr una carne suave y jugosa que se marina al menos con 24 horas de anticipación. Se tira a la plancha con cebolla, chile pimiento para que se unan y suelten sus jugos y den forma a un crujiente pan Chapata, al final el toque con el aderezo de la casa, un alioli preparado en nuestra cocina por manos auténticamente cubanas.",
+    "image": "/images/pan_con_lechon.jpg",
+    "badge": "El Clásico Cubano",
     "badgeType": "red",
-    "prepTime": "10-15 min",
-    "portion": "1 Sándwich grande (2 cortes)",
+    "prepTime": "6 a 10 minutos",
+    "portion": "1 persona",
     "ingredients": [
-      "Pan criollo especial con manteca",
-      "Pierna de cerdo asada al mojo criollo",
-      "Jamón dulce tipo Virginia ahumado",
-      "Queso suizo fundente",
-      "Pepinillos finos encurtidos al eneldo",
-      "Mostaza amarilla clásica",
-      "Guarnición de mariquitas (chips de plátano verde)"
+      "Pan chapata artesanal",
+      "bistec de lechón marinado",
+      "pimiento",
+      "cebolla",
+      "alioli casero"
     ],
-    "tags": ["Más Pedido", "Sándwich", "Plancha"],
+    "tags": [
+      "Lechón",
+      "Chapata",
+      "Alioli",
+      "Popular"
+    ],
     "isPopular": true,
-    "pairing": "Acompañar indiscutiblemente con una Malta con leche condensada o un Batido de Mamey."
+    "pairing": "Acompañar de plataninas, tostones, papas fritas o el toque crujiente que prefieras y una bebida refrescante  o una buena Michelada."
   },
   {
-    "id": "sandwich-medianoche",
-    "name": "Sándwich Medianoche Habanero",
+    "id": "cuban-steak",
+    "name": "Cuban Steak",
     "category": "sandwiches",
-    "price": 54.00,
-    "description": "Similar al sándwich cubano pero preparado en nuestro pan dulce de huevo esponjoso, tostado lentamente en prensa. La combinación de lo dulce del pan con el toque salado del cerdo, jamón y queso crea un equilibrio insuperable.",
-    "image": "/images/sandwich_cubano.jpg",
-    "badge": "Pan Dulce de Huevo",
+    "price": 45.0,
+    "description": "Una versión casera del pan con bistec encebollado, nosotros lo hacemos con carne de res fresca y suave con sazón moderada, la hacemos a la plancha con cebolla y chile pimiento, unas gotas de salsa inglesa para rellenar un buen pan chapata, agregamos al gusto queso mozzarela y encurtido morado (cebolla al mojo de ajo) y dejamos dorar el pan para que lo degustes al momento.",
+    "image": "/images/cuban_steak.jpg",
+    "badge": "Pan con Bistec",
     "badgeType": "gold",
-    "prepTime": "10-15 min",
-    "portion": "1 Sándwich",
+    "prepTime": "10 a 12 minutos",
+    "portion": "1 persona",
     "ingredients": [
-      "Pan suave de huevo tipo brioche cubano",
-      "Lechón asado deshebrado",
-      "Jamón glaseado",
-      "Queso suizo fundido",
-      "Pepinillos crocantes",
-      "Mostaza amarilla",
-      "Mantequilla dorada"
+      "Pan chapata artesanal",
+      "bistec de carne de res",
+      "pimiento",
+      "cebolla",
+      "Queso mozzarella",
+      "escabeche morado",
+      "alioli casero"
     ],
-    "tags": ["Pan Dulce", "Clásico Nocturno"],
+    "tags": [
+      "Res",
+      "Queso",
+      "Escabeche",
+      "Chapata"
+    ],
+    "isPopular": true,
+    "pairing": "Acompañar de plataninas, tostones, papas fritas o el toque crujiente que prefieras y una bebida refrescante como una buena Michelada o delicioso mojito cubano."
+  },
+  {
+    "id": "sandwich-ropa-vieja",
+    "name": "Sandwich Ropa Vieja",
+    "category": "sandwiches",
+    "price": 45.0,
+    "description": "Una carne de la cocina tradicional cubana a nuestro estilo, carne de cerdo cocinada con hierbas durante horas para desmenuzarla y luego sumergirla en salsa que lleva desde tomates maduros, pimientos rojos, laurel, tomillo, chile pasa, vino blanco, pimienta, ají, pimienta, comino y toda la sazón y tiempo de preparación de la cocina cubana para luego ponerla dentro de pan chapata crujiente y acompañarla de queso mozzarela y aderezo de la casa.",
+    "image": "/images/sandwich_ropa_vieja.jpg",
+    "badge": "Especialidad",
+    "badgeType": "red",
+    "prepTime": "6 a 10 minutos",
+    "portion": "1 persona",
+    "ingredients": [
+      "Pan chapata artesanal",
+      "Carne de cerdo desmenuzada en salsa roja",
+      "pimiento",
+      "cebolla",
+      "Queso mozzarella",
+      "alioli casero"
+    ],
+    "tags": [
+      "Cerdo",
+      "Salsa Criolla",
+      "Mozzarella"
+    ],
     "isPopular": false,
-    "pairing": "Perfecto con un Café Cortadito bien caliente."
+    "pairing": "Pide extra queso y disfruta la intensidad de sabor. Acompaña de vino o una buena cerveza super fria."
   },
   {
-    "id": "tostones-rellenos",
-    "name": "Tostones Rellenos Criollos",
-    "category": "entradas",
-    "price": 48.00,
-    "description": "Seis canastitas doradas de plátano verde macho, crujientes por fuera y tiernas por dentro, colmadas con nuestra jugosa Ropa Vieja criolla, un toque sutil de crema de aguacate y cilantro fresco recién picado.",
-    "image": "/images/tostones_rellenos.jpg",
-    "badge": "Ideal para Compartir",
+    "id": "pan-con-chorizo-argentino",
+    "name": "Pan con Chorizo argentino",
+    "category": "sandwiches",
+    "price": 45.0,
+    "description": "Un choripan a lo cubano; selección de un buen chorizo argentino artesanal puesto a la plancha con mucha cebolla que se carameliza ahí mismo, se pone dentro de un pan chapata artesanal aderezando con nuestro chimichurri de la casa espeso, consistente para finalizar con alioli casero.",
+    "image": "/images/pan_chorizo_argentino.jpg",
+    "badge": "Choripán Artesanal",
     "badgeType": "gold",
-    "prepTime": "12-15 min",
-    "portion": "6 unidades (2-3 personas)",
+    "prepTime": "10 a 12 minutos",
+    "portion": "1 persona",
     "ingredients": [
-      "Plátano verde macho prensado artesanalmente",
-      "Guiso de ropa vieja con pimientos y cebollitas",
-      "Crema suave de aguacate y lima",
-      "Cilantro fresco picado",
-      "Gajos de limón criollo para exprimir"
+      "Pan chapata artesanal o baguette",
+      "Chorizo argentino",
+      "cebolla",
+      "chimichurri",
+      "alioli casero"
     ],
-    "tags": ["Para Compartir", "Entrada", "Plátano Verde"],
-    "isPopular": true,
-    "pairing": "Combina a la perfección con nuestro Mojito de la casa."
+    "tags": [
+      "Chorizo Argentino",
+      "Chimichurri"
+    ],
+    "isPopular": false,
+    "pairing": "Acompaña de alguna ensalada fresca, un té frío, una buena cimarrona o michelada muy fría."
   },
   {
-    "id": "croquetas-habaneras",
-    "name": "Croquetas de Jamón Serrano Criollo",
-    "category": "entradas",
-    "price": 42.00,
-    "description": "Receta de convento habanero: seis croquetas doradas y ultra crujientes por fuera, con un relleno sedoso de bechamel suave con tropezones de jamón curado y especias criollas. Servidas con alioli de ajo asado y gajos de lima.",
-    "image": "/images/croquetas_habaneras.jpg",
-    "badge": "Receta de la Abuela",
+    "id": "sandwich-media-noche",
+    "name": "Sandwich Media Noche",
+    "category": "sandwiches",
+    "price": 65.0,
+    "description": "Es un sándwich prensado premium que lleva Lomo de cinta de cerdo horneado o a la plancha, reposado en sus jugos, doble capa de jamón, queso chedar, pepinillos, y mostaza, perfecto para compartir o servir en tus reuniones.",
+    "image": "/images/sandwich_cubano.jpg",
+    "badge": "Prensado Premium",
     "badgeType": "blue",
-    "prepTime": "10 min",
-    "portion": "6 unidades",
+    "prepTime": "10 a 15 minutos",
+    "portion": "1 a 2 personas",
     "ingredients": [
-      "Bechamel cremosa reducida a fuego lento",
-      "Jamón curado picado fino",
-      "Nuez moscada y pimienta blanca",
-      "Empanizado crujiente en pan rallado artesanal",
-      "Dip de alioli suave de la casa"
+      "Pan chapata o baguette",
+      "Lomo de cinta desmenuzada en salsa roja",
+      "pimiento",
+      "cebolla",
+      "Queso mozzarella",
+      "alioli casero"
     ],
-    "tags": ["Crujiente", "Entrada", "Favorito Infantil"],
-    "isPopular": true,
-    "pairing": "Marida con una cerveza clara o copa de vino blanco seco."
+    "tags": [
+      "Lomo de Cinta",
+      "Queso",
+      "Prensado"
+    ],
+    "isPopular": false,
+    "pairing": "Acompaña de alguna ensalada fresca, un té frío, una buena cimarrona o michelada muy fría."
   },
   {
-    "id": "moros-y-cristianos",
-    "name": "Moros y Cristianos Campesinos",
-    "category": "guarniciones",
-    "price": 28.00,
-    "description": "El matrimonio inseparable de la cocina cubana: arroz de grano largo cocinado en el caldo espeso de frijoles negros, con sofrito abundante de cebolla, pimiento verde, ajo frito, laurel, comino y chicharritos dorados.",
-    "image": "/images/moros_y_cristianos.jpg",
-    "badge": "Guarnición Estrella",
+    "id": "derretido",
+    "name": "Derretido",
+    "category": "sandwiches",
+    "price": 20.0,
+    "description": "Con ganas de algo lilviano, selecciona un delicioso pan prensado con doble queso (mozzarella y chedar), por Q 5.00 adicionales puedes agregar frijoles fritos o jamón.",
+    "image": "/images/derretido.jpg",
+    "badge": "Doble Queso",
     "badgeType": "gold",
-    "prepTime": "5-10 min",
-    "portion": "1 tazón generoso",
+    "prepTime": "6 a 10 minutos",
+    "portion": "1 persona",
     "ingredients": [
-      "Arroz de grano seleccionado",
-      "Frijoles negros de la cosecha cocidos al punto",
-      "Sofrito cubano tradicional con orégano y comino",
-      "Trozos de tocino ahumado criollo",
-      "Pimiento verde y ajo dorado"
+      "Pan brioche",
+      "Queso Cheddar",
+      "Queso Mozzarela",
+      "Opcional: tomate",
+      "por Q5.00 adicional agrega frijoles o jamón"
     ],
-    "tags": ["Tradicional", "Guarnición", "Sin Gluten"],
+    "tags": [
+      "Brioche",
+      "Cheddar",
+      "Mozzarella"
+    ],
+    "isPopular": false,
+    "pairing": "Acompaña de un refresco frio de naranja, limonada o un café cubano solo o con leche."
+  },
+  {
+    "id": "hamburguesa",
+    "name": "Hamburguesa",
+    "category": "hamburguesas",
+    "price": 40.0,
+    "description": "Deliciosa y jugosa hamburguesa en un pan brioche con queso chedar y aderezo de la casa hecho a base de alioli, ketchup, mostaza, pepinillo triturado y un toque de limón.",
+    "image": "/images/hamburguesa.jpg",
+    "badge": "Torta 1/4 lb",
+    "badgeType": "blue",
+    "prepTime": "10 a 12 minutos",
+    "portion": "1 persona",
+    "ingredients": [
+      "Pan hamburguesa brioche",
+      "torta de cerdo 1/4 libra",
+      "cebolla a la plancha",
+      "queso Chedar",
+      "aderezo de la casa",
+      "(opcional tomate)"
+    ],
+    "tags": [
+      "Brioche",
+      "Cerdo",
+      "Cheddar",
+      "Alioli"
+    ],
+    "isPopular": false,
+    "pairing": "Acompaña de plataninas o tostones y una bebida fria"
+  },
+  {
+    "id": "torito",
+    "name": "Torito",
+    "category": "hamburguesas",
+    "price": 45.0,
+    "description": "Deliciosa y jugosa hamburguesa en un pan brioche con queso chedar, huevo estrellado y aderezo de la casa hecho a base de alioli, ketchup, mostaza, pepinillo triturado y un toque de limón.",
+    "image": "/images/torito.jpg",
+    "badge": "Con Huevo Estrellado",
+    "badgeType": "red",
+    "prepTime": "10 a 12 minutos",
+    "portion": "1 persona",
+    "ingredients": [
+      "Pan hamburguesa brioche",
+      "torta de cerdo 1/4 libra",
+      "huevo estrellado",
+      "cebolla a la plancha",
+      "queso Chedar",
+      "aderezo de la casa",
+      "(opcional tomate y chimichurri)"
+    ],
+    "tags": [
+      "Huevo Estrellado",
+      "Brioche",
+      "Cheddar",
+      "Popular"
+    ],
     "isPopular": true,
-    "pairing": "El acompañamiento obligatorio para cualquier carne asada."
+    "pairing": "Acompaña de plataninas o tostones y una bebida fria"
+  },
+  {
+    "id": "arroz-congri",
+    "name": "Arroz congrí",
+    "category": "guarniciones",
+    "price": 35.0,
+    "description": "Consiste en la cocción conjunta del arroz blanco con frijoles, aromatizados con un potente sofrito criollo y especias tradicionales com el ajo, cebolla y comino. Ideal para una comida familiar o pídela en nuestro lugar de servicio solo o como almuerzo o cena.",
+    "image": "/images/arroz_congri.png",
+    "badge": "Imprescindible",
+    "badgeType": "gold",
+    "prepTime": "2 horas",
+    "portion": "Bandeja personal y para compartir desde 2 personas hasta bandeja para eventos especiales.",
+    "ingredients": [
+      "Arroz blanco",
+      "frijoles negros",
+      "condimentos y especias",
+      "sofrito"
+    ],
+    "tags": [
+      "Arroz",
+      "Frijoles Negros",
+      "Sofrito",
+      "Tradicional"
+    ],
+    "isPopular": true,
+    "pairing": "Acompaña de tu proteína favorita como lomo de cinta, bistec de cerdo encebollado, ropa vieja, vaca frita o en el desayuno o cena con huevo estrellado. La bebida de tu preferencia desde limonada hasta un delicioso mojito cubano o cerveza bien fría."
   },
   {
     "id": "yuca-con-mojo",
-    "name": "Yuca Hervida con Mojo Criollo",
+    "name": "Yuca con mojo",
     "category": "guarniciones",
-    "price": 30.00,
-    "description": "Trozos de yuca seleccionada cocidos al vapor hasta quedar suaves como mantequilla, bañados inmediatamente en nuestro mojo caliente de aceite de oliva, ajo majado, naranja agria y rodajas de cebolla fresca.",
-    "image": "/images/moros_y_cristianos.jpg",
-    "badge": "100% Casera",
+    "price": 35.0,
+    "description": "Yuca cocida al vapor hasta que está muy blanda, bañada con un sofrito preparado entre aceite de oliva, ajo triturado, limón, especias y cilantro o perijil finamente picado. Sola es una delicia pero acompañando tus comidas es una guarnición muy apetitosa y tradicional de la cocina cubana.",
+    "image": "/images/yuca_con_mojo.png",
+    "badge": "Mojo Criollo",
     "badgeType": "blue",
-    "prepTime": "5-10 min",
-    "portion": "1 porción",
+    "prepTime": "2 horas",
+    "portion": "Bandeja personal y para compartir desde 2 personas hasta bandeja para eventos especiales.",
     "ingredients": [
-      "Yuca fresca tierna hervida con sal de mar",
-      "Mojo de ajo triturado al mortero",
-      "Jugo de naranja agria natural",
-      "Aceite de oliva tibio",
-      "Cebolla marinada al limón"
+      "Yuca criolla cocida",
+      "mojo elaborado con ajo, especias y cebolla morada"
     ],
-    "tags": ["Vegetariano", "Sin Gluten", "Saludable"],
+    "tags": [
+      "Yuca",
+      "Mojo de Ajo",
+      "Cebolla Morada"
+    ],
     "isPopular": false,
-    "pairing": "Ideal para acompañar cerdo o pollo frito al mojo."
+    "pairing": "Cómela sola o agrega carnitas fritas. Es un acompañamiento ideal para platos completos de comida cubana para compartir. Pídelo en tus platos personales como guarnición."
   },
   {
-    "id": "flan-cubano",
-    "name": "Flan de Leche de la Abuela",
-    "category": "postres",
-    "price": 38.00,
-    "description": "El postre más emblemático de los domingos en familia en La Habana: flan elaborado con leche condensada, yemas de huevo frescas y esencia de vainilla pura, bañado en caramelo oscuro brillante con notas tostadas inigualables.",
-    "image": "/images/flan_cubano.jpg",
-    "badge": "Imperdible",
-    "badgeType": "red",
-    "prepTime": "5 min",
-    "portion": "1 rebanada individual",
-    "ingredients": [
-      "Leche condensada azucarada de primera calidad",
-      "Leche evaporada",
-      "Huevos de granja frescos",
-      "Caramelo ámbar casero",
-      "Vainilla bourbon",
-      "Toque cítrico de ralladura de limón verde"
-    ],
-    "tags": ["Postre Insignia", "Dulce", "Vegetariano"],
-    "isPopular": true,
-    "pairing": "Obligatorio acompañar con un Café Cubano o Cortadito humeante."
-  },
-  {
-    "id": "mojito-cubano",
-    "name": "Mojito Tradicional de la Bodeguita",
-    "category": "bebidas",
-    "price": 45.00,
-    "description": "Fórmula legendaria: hojas frescas de hierbabuena maceradas suavemente con azúcar de caña morena y zumo natural de lima verde, servido con hielo picado, ron blanco añejado, agua con gas burbujeante y tallo natural de caña de azúcar.",
-    "image": "/images/mojito_cubano.jpg",
-    "badge": "Cóctel Insignia",
-    "badgeType": "red",
-    "prepTime": "5-8 min",
-    "portion": "Vaso highball de 14 oz",
-    "ingredients": [
-      "Ron blanco tradicional caribeño",
-      "Hierbabuena fresca seleccionada",
-      "Zumo de limón criollo recién exprimido",
-      "Azúcar de caña natural",
-      "Agua mineral con gas",
-      "Caña de azúcar fresca de corte"
-    ],
-    "tags": ["Cóctel", "Refrescante", "Con Alcohol"],
-    "isPopular": true,
-    "pairing": "El compañero ideal para iniciar tu experiencia con unos Tostones Rellenos."
-  },
-  {
-    "id": "cafe-cubano",
-    "name": "Café Cubano con Espumita (Cortadito)",
-    "category": "bebidas",
-    "price": 22.00,
-    "description": "El alma de Cuba en una taza pequeña: espresso oscuro, espeso y aromático, batido enérgicamente con azúcar morena hasta lograr la codiciada espumita dorada y cremosa que flota en la superficie. Opcional con un toque de leche evaporada.",
-    "image": "/images/cafe_cubano.jpg",
-    "badge": "Tradición Diaria",
+    "id": "tostones",
+    "name": "Tostones",
+    "category": "entradas",
+    "price": 45.0,
+    "description": "El acompañamiento ideal para todas tus comidas son crujientes por fuera, suaves por dentro, hechos a base de plátano verde frito, aplastado y vuelto a freir, agregamos un toque de sal y aderezo de la casa; no hay plato de comida cubana sin una buena ración de tostones",
+    "image": "/images/tostones.jpg",
+    "badge": "Doble Fritura",
     "badgeType": "gold",
-    "prepTime": "5 min",
-    "portion": "Tacita tacita demitasse (4 oz)",
+    "prepTime": "20 minutos",
+    "portion": "1 a 2 personas",
     "ingredients": [
-      "Café tostado oscuro de altura",
-      "Espumita artesanal de azúcar batida al punto",
-      "Opcional: chorrito de leche vaporizada (Cortadito)"
+      "Plátano verde de doble fritura."
     ],
-    "tags": ["Café", "Caliente", "Energizante"],
+    "tags": [
+      "Plátano Verde",
+      "Crujiente",
+      "Snack"
+    ],
+    "isPopular": false,
+    "pairing": "Es un snack delicioso para comer solo o como acompañamiento de la cualquier platillo, agrega aderezos, guacamole, pico de gallo, disfrutalo como gustes y a cualquier hora."
+  },
+  {
+    "id": "tostones-montados",
+    "name": "Tostones montados",
+    "category": "entradas",
+    "price": 90.0,
+    "description": "Con ganas de picar y compartir? Prueba nuestros tostones de plátano verde de doble fritura que sostienen una buena porción de proteina como ropa vieja, lechón o vegetariano, agrega pico de gallo, aguacate y alioli casero, saborea la sazon cubana en un bocado irresistible. Ideal como entrada en tus eventos.",
+    "image": "/images/tostones_montados.jpg",
+    "badge": "Para Compartir",
+    "badgeType": "red",
+    "prepTime": "15 a 20 minutos",
+    "portion": "1 a 2 personas",
+    "ingredients": [
+      "Plátano verde de doble fritura.",
+      "Proteína de tu preferencia (ropa vieja, picadillo, chorizo, lechón, tu eliges una)",
+      "Tomate y cebolla con toque de limón.",
+      "Aguacate",
+      "Alioli"
+    ],
+    "tags": [
+      "Tostones",
+      "Ropa Vieja",
+      "Aguacate",
+      "Para Compartir"
+    ],
     "isPopular": true,
-    "pairing": "El cierre maestro tras saborear un Flan de la Abuela."
+    "pairing": "Una entrada que reune muchos sabores ideal para acompañar con cualquier bebida fria natural o gaseosa, cerveza, michelada o mojito cubano."
+  },
+  {
+    "id": "ensalada-fria",
+    "name": "Ensalada fría",
+    "category": "ensaladas",
+    "price": 20.0,
+    "description": "Ensalada fría, la típica para acompañar platillos o sandwiches cubanos elaborada con coditos, papa, jamón, vegetales finamente picados y mayonesa cubana.",
+    "image": "/images/ensalada_fria.png",
+    "badge": "Receta Tradicional",
+    "badgeType": "blue",
+    "prepTime": "1 hora",
+    "portion": "1 persona o eventos.",
+    "ingredients": [
+      "Coditos",
+      "papa",
+      "jamón",
+      "apio / cebollin",
+      "sofrito",
+      "mayonesa casera"
+    ],
+    "tags": [
+      "Coditos",
+      "Jamón",
+      "Mayonesa Cubana"
+    ],
+    "isPopular": false,
+    "pairing": "Un acompañamiento ideal en platos fuertes o sandwiches,  se trabaja bajo pedido para una o varias personas."
+  },
+  {
+    "id": "ensalada-fresca",
+    "name": "Ensalada fresca",
+    "category": "ensaladas",
+    "price": 20.0,
+    "description": "Ensalada a base de vegetales frescos como lechuga, tomate, cebolla, manzana verde, roja, uvas y aderezo a base de naranja, aceite y pimienta, ideal para carnes horneadas en tus eventos especiales",
+    "image": "/images/ensalada_fresca.png",
+    "badge": "Fresca & Ligera",
+    "badgeType": "blue",
+    "prepTime": "30 minutos",
+    "portion": "1 persona o eventos.",
+    "ingredients": [
+      "Variedad de lechugas",
+      "manzana verde",
+      "manzana roja",
+      "uvas",
+      "toque de queso",
+      "aderezo de la casa"
+    ],
+    "tags": [
+      "Lechuga",
+      "Frutas",
+      "Queso",
+      "Saludable"
+    ],
+    "isPopular": false,
+    "pairing": "Un acompañamiento ideal en platos fuertes o sandwiches,  se trabaja bajo pedido para una o varias personas."
+  },
+  {
+    "id": "ropa-vieja",
+    "name": "Ropa Vieja",
+    "category": "carnes",
+    "price": 45.0,
+    "description": "Platillo emblemático y ancestral de Cuba, hecho de carne de res o de cerdo (que es nuestra especialidad) cocinada con hierbas durante horas para desmenuzarla y luego sumergirla en salsa que lleva desde tomates maduros, pimientos rojos, laurel, tomillo, chile pasa, vino blanco, pimienta, ají, pimienta, comino y toda la sazón y tiempo de preparación de la cocina cubana, se sirve en plato personal o bandeja para tus eventos.",
+    "image": "/images/ropa_vieja.png",
+    "badge": "Platillo Insignia",
+    "badgeType": "red",
+    "prepTime": "2 horas",
+    "portion": "1 persona o eventos.",
+    "ingredients": [
+      "Carne de cerdo cocida entre hierbas.",
+      "Salsa a base de tomate, pimientos, cebolla, ajo, especias, vino blanco, aceitunas y aceite de oliva."
+    ],
+    "tags": [
+      "Carne Deshebrada",
+      "Salsa Criolla",
+      "Insignia",
+      "Popular"
+    ],
+    "isPopular": true,
+    "pairing": "Una carne deliciosa, jugosa que combina perfectamente con arroz congrí o arroz blanco o sencillamente dentro de un pan baguette o sobre tostones para compartir. Acompaña de un buen vino, Mojito cubano o  bebida refrescante de tu preferencia."
+  },
+  {
+    "id": "lomo-de-cinta",
+    "name": "Lomo de Cinta",
+    "category": "carnes",
+    "price": 55.0,
+    "description": "Delicioso lomo de cerdo marinado unas 24 horas previas a su cocción, se pincha con aceitunas, ajo y hierbas.\nSe hornea o asa para luego servir en rodajas con salsa de la casa hecha en diferentes opciones, salada, dulce o agridulce, una delicia para una o varias personas.",
+    "image": "/images/lomo_de_cinta.png",
+    "badge": "Mechado con Aceitunas",
+    "badgeType": "gold",
+    "prepTime": "2 horas",
+    "portion": "1 persona o eventos.",
+    "ingredients": [
+      "Lomo de cinta marinado",
+      "Relleno con aceitunas, ajo, hierbas.",
+      "Salsa con jugo de cocción, moras, piña para opción dulce.",
+      "Salsa con jugo de cocción, piña, gengibre, soya para opción Agridulce.",
+      "Salsa con jugo de cocción, tomate, hierbas, vino y especies para opción salada."
+    ],
+    "tags": [
+      "Lomo de Cerdo",
+      "Aceitunas",
+      "Gourmet"
+    ],
+    "isPopular": false,
+    "pairing": "Una carne deliciosa, jugosa que combina perfectamente con arroz congrí o arroz blanco o sencillamente dentro de un pan baguette o sobre tostones para compartir. Acompaña de un buen vino, Mojito cubano o  bebida refrescante de tu preferencia."
+  },
+  {
+    "id": "vaca-frita",
+    "name": "Vaca Frita",
+    "category": "carnes",
+    "price": 45.0,
+    "description": "Una receta clásica cubana, elaborada a base de carne de res o cerdo, cocinada varias horas entre hierbas hasta que se desmenuza para luego sofreir entre cebolla, pimiento, especies, ajo y toque de limón, sal y pimienta. Delicioso plato para compartir en familia o con tus amigos.",
+    "image": "/images/vaca_frita.jpg",
+    "badge": "Favorito del Chef",
+    "badgeType": "gold",
+    "prepTime": "2 horas",
+    "portion": "1 persona o eventos.",
+    "ingredients": [
+      "Carne de cerdo cocida entre hierbas.",
+      "Fritura entre pimientos, cebolla, ajo, especias, limón, sal y pimienta."
+    ],
+    "tags": [
+      "Carne Dorada",
+      "Cebolla Salteada",
+      "Toque Cítrico"
+    ],
+    "isPopular": true,
+    "pairing": "Una carne deliciosa, un tanto crocante y con la acidez que hace agua la boca, ideal para acompañar de arroz congrí o arroz blanco, frijoles, platanos fritos. Acompaña de la bebida refrescante de tu preferencia."
+  },
+  {
+    "id": "lechoncito-asado",
+    "name": "Lechoncito Asado",
+    "category": "carnes",
+    "price": 75.0,
+    "description": "La fiesta ideal se realiza alrededor de un lechoncito horneado o asado, se salmuera una noche antes con hierbas y un aliño especial con sabor a Cuba con especias, naranja y cerveza para luego hornearse o ponerse en las brasas en constante rotación a fuego moderado en cocción lenta para lograr una textura crocante y carne jugosa. Es una platillo ideal para convivios o eventos sociales. Pídelo con anticipación.",
+    "image": "/images/lechon_asado.jpg",
+    "badge": "Asado a las Brasas",
+    "badgeType": "red",
+    "prepTime": "5 horas",
+    "portion": "Especial para eventos",
+    "ingredients": [
+      "Lechón",
+      "Finas hierbas y aliño de la casa, naranja, cerveza o vino."
+    ],
+    "tags": [
+      "Lechón Entero",
+      "Piel Crocante",
+      "Eventos",
+      "Popular"
+    ],
+    "isPopular": true,
+    "pairing": "Ideal para eventos de convivencia social o familiar, acompáñalo de una ensalada fria, fresca, arroz congrí, arroz imperial o blanco y la bebida de tu preferencia."
+  },
+  {
+    "id": "bistec-encebollado",
+    "name": "Bistec encebollado",
+    "category": "carnes",
+    "price": 35.0,
+    "description": "Tierno corte de carne de cerdo, previamente marinada y puesta a la plancha con suficiente cebolla y toque de limón para gozar sola, en un sandwich o con alguna guarnición de la cocina cubana que nos caracteriza.",
+    "image": "/images/bistec_encebollado.jpg",
+    "badge": "A la Plancha",
+    "badgeType": "gold",
+    "prepTime": "15 minutos",
+    "portion": "1 persona o eventos.",
+    "ingredients": [
+      "Carne de cerdo en bistec",
+      "fritura o a la plancha",
+      "Cebolla y limón"
+    ],
+    "tags": [
+      "Bistec de Cerdo",
+      "Cebolla",
+      "Plancha"
+    ],
+    "isPopular": false,
+    "pairing": "Inclúyelo en tus almuerzos o cenas o pídelo como tu sandwich favorito."
+  },
+  {
+    "id": "carnitas-fritas",
+    "name": "Carnitas Fritas",
+    "category": "carnes",
+    "price": 90.0,
+    "description": "Trozos de carne de cerdo fritas en abundante aceite para obtener una carne jugosa y suave por dentro y dorada por fuera, la picada cubana perfecta para cualquier ocasión",
+    "image": "/images/carnitas_fritas.jpg",
+    "badge": "Por Libra",
+    "badgeType": "red",
+    "prepTime": "20 a 25 minutos",
+    "portion": "libra para 1 ó 2 personas o para eventos",
+    "ingredients": [
+      "Carne de cerdo en trozos sazonada con sal, ajo y pimienta",
+      "fritura profunda"
+    ],
+    "tags": [
+      "Cerdo Frito",
+      "Por Libra",
+      "Picada"
+    ],
+    "isPopular": true,
+    "pairing": "Ideal para picar entre amigos, al comprarla por libra te incluimos tortillas y aderezo de la casa. Acompañalas de cerveza o michelada muy fría"
+  },
+  {
+    "id": "costillas-fritas",
+    "name": "Costillas Fritas",
+    "category": "carnes",
+    "price": 90.0,
+    "description": "Trozos de costillas  de cerdo fritas en abundante aceite para obtener una carne jugosa y suave por dentro y dorada por fuera, la picada cubana perfecta para cualquier ocasión",
+    "image": "/images/costillas_fritas.jpg",
+    "badge": "Crujiente & Jugosa",
+    "badgeType": "gold",
+    "prepTime": "20 a 25 minutos",
+    "portion": "libra para 1 ó 2 personas o para eventos",
+    "ingredients": [
+      "Costillas de cerdo en trozos sazonada con sal, ajo y pimienta",
+      "fritura profunda"
+    ],
+    "tags": [
+      "Costilla",
+      "Cerdo",
+      "Por Libra",
+      "Crujiente"
+    ],
+    "isPopular": false,
+    "pairing": "Ideal para picar entre amigos, al comprarla por libra te incluimos tortillas y aderezo de la casa. Acompañalas de cerveza o michelada muy fría"
+  },
+  {
+    "id": "cimarrona",
+    "name": "Cimarrona",
+    "category": "bebidas",
+    "price": 15.0,
+    "description": "Suerito o mineral preparada con limón y sal.",
+    "image": "/images/cimarrona.png",
+    "badge": "Refrescante",
+    "badgeType": "blue",
+    "prepTime": "5 minutos",
+    "portion": "1 persona",
+    "ingredients": [
+      "Agua mineral",
+      "hielo",
+      "limón",
+      "sal"
+    ],
+    "tags": [
+      "Mineral",
+      "Limón",
+      "Sal",
+      "Sin Alcohol"
+    ],
+    "isPopular": false,
+    "pairing": "Ideal para hidratarte con una o varias o para acompañar cualquier plato del menú"
+  },
+  {
+    "id": "michelada",
+    "name": "Michelada",
+    "category": "bebidas",
+    "price": 25.0,
+    "description": "Jugo de vegetales semi picante con limón y sal añadido a tu cerveza favorita, te devuelve la vida.",
+    "image": "/images/michelada.png",
+    "badge": "Especial de la Casa",
+    "badgeType": "red",
+    "prepTime": "5 minutos",
+    "portion": "1 persona",
+    "ingredients": [
+      "Jugo de vegetales y almejas semi picante",
+      "limón",
+      "sal",
+      "Cerveza"
+    ],
+    "tags": [
+      "Cerveza",
+      "Almeja & Vegetales",
+      "Semi Picante"
+    ],
+    "isPopular": true,
+    "pairing": "Ideal para hidratarte con una o varias o para acompañar cualquier plato del menú"
+  },
+  {
+    "id": "miche-light",
+    "name": "Miche Light",
+    "category": "bebidas",
+    "price": 20.0,
+    "description": "Con ganas de una Miche pero sin cerveza, preparamos jugo de vegetales semi picante con limón y sal añadido a agua mineral, completamente refrescante.",
+    "image": "/images/miche_light.png",
+    "badge": "Sin Alcohol",
+    "badgeType": "blue",
+    "prepTime": "5 minutos",
+    "portion": "1 persona",
+    "ingredients": [
+      "Agua mineral",
+      "Jugo de vegetales y almejas semi picante",
+      "hielo",
+      "limón",
+      "sal"
+    ],
+    "tags": [
+      "Mineral",
+      "Sin Alcohol",
+      "Vegetales",
+      "Refrescante"
+    ],
+    "isPopular": false,
+    "pairing": "Ideal para hidratarte con una o varias o para acompañar cualquier plato del menú"
+  },
+  {
+    "id": "nachos-con-carne",
+    "name": "Nachos con carne",
+    "category": "entradas",
+    "price": 45.0,
+    "description": "Una deliciosa y abundante combinación de Nachos, carne en picadillo, queso mozzarella, escabeche morado (cebolla morada) aderezo de la casa)",
+    "image": "/images/nachos_con_carne.png",
+    "badge": "Ideal para Picar",
+    "badgeType": "gold",
+    "prepTime": "5 a 10 minutos",
+    "portion": "1 persona",
+    "ingredients": [
+      "Nachos",
+      "Picadillo de carne molida",
+      "escabeche morado",
+      "queso",
+      "aderezo de la casa"
+    ],
+    "tags": [
+      "Nachos",
+      "Picadillo",
+      "Mozzarella",
+      "Para Compartir"
+    ],
+    "isPopular": false,
+    "pairing": "Ideal para picar entre amigos, Acompañalas de cerveza o michelada muy fría"
+  },
+  {
+    "id": "tacos",
+    "name": "Tacos",
+    "category": "tortillas",
+    "price": 45.0,
+    "description": "Tu eliges la carne de tu preferencia y armamos los tacos con queso, cebolla, cilantro y salsa verde taquera",
+    "image": "/images/tacos.png",
+    "badge": "Taquería Criolla",
+    "badgeType": "gold",
+    "prepTime": "10 a 15 minutos",
+    "portion": "1 persona",
+    "ingredients": [
+      "Carne de cerdo, res, chorizo o ropa vieja",
+      "Tortilla de maiz",
+      "cebolla",
+      "Cilantro",
+      "salsa verde"
+    ],
+    "tags": [
+      "Tacos",
+      "Salsa Verde",
+      "Cilantro & Cebolla"
+    ],
+    "isPopular": false,
+    "pairing": "Ideal cualquier tiempo de comida o para picar entre amigos, Acompañalas de cerveza o michelada muy fría"
+  },
+  {
+    "id": "tortillas-de-harina",
+    "name": "Tortillas de harina",
+    "category": "tortillas",
+    "price": 45.0,
+    "description": "Tu eliges entre lechón, res, chorizo argentino, ropa vieja y en lugar de pan para sandwich te lo servimos como tortilla de harina.",
+    "image": "/images/tortillas_de_harina.png",
+    "badge": "Tortilla Suave",
+    "badgeType": "blue",
+    "prepTime": "10 a 15 minutos",
+    "portion": "1 persona",
+    "ingredients": [
+      "Carne de cerdo, res, chorizo o ropa vieja",
+      "Tortilla de Harina",
+      "queso mozzarella",
+      "Alioli casero"
+    ],
+    "tags": [
+      "Tortilla de Harina",
+      "Mozzarella",
+      "Alioli"
+    ],
+    "isPopular": false,
+    "pairing": "Ideal cualquier tiempo de comida o para picar entre amigos, Acompañalas de cerveza o michelada muy fría"
+  },
+  {
+    "id": "gatorade",
+    "name": "Gatorade",
+    "category": "bebidas",
+    "price": 10.0,
+    "description": "Bebida isotónica hidratante y refrescante con electrolitos, servida bien fría.",
+    "image": "/images/gatorade.png",
+    "badge": "Refrescante",
+    "badgeType": "blue",
+    "prepTime": "Inmediato",
+    "portion": "1 botella",
+    "ingredients": [
+      "Bebida isotónica hidratante",
+      "Electrolitos"
+    ],
+    "tags": [
+      "Bebida",
+      "Hidratante",
+      "Sin Alcohol"
+    ],
+    "isPopular": false,
+    "pairing": "Ideal para hidratarte y acompañar cualquiera de nuestros platillos cubanos."
+  },
+  {
+    "id": "cocacola",
+    "name": "Coca-Cola",
+    "category": "bebidas",
+    "price": 10.0,
+    "description": "El sabor clásico y legendario de Coca-Cola, servida bien fría.",
+    "image": "/images/cocacola.png",
+    "badge": "Clásica",
+    "badgeType": "red",
+    "prepTime": "Inmediato",
+    "portion": "1 lata / botella",
+    "ingredients": [
+      "Refresco de cola carbonatado"
+    ],
+    "tags": [
+      "Gaseosa",
+      "Clásica",
+      "Sin Alcohol"
+    ],
+    "isPopular": true,
+    "pairing": "El acompañante perfecto para sándwiches cubanos y hamburguesas criollas."
+  },
+  {
+    "id": "cocacola-cero",
+    "name": "Coca-Cola Cero",
+    "category": "bebidas",
+    "price": 10.0,
+    "description": "Todo el sabor original de Coca-Cola, sin azúcar ni calorías.",
+    "image": "/images/cocacola_cero.png",
+    "badge": "Cero Azúcar",
+    "badgeType": "blue",
+    "prepTime": "Inmediato",
+    "portion": "1 lata / botella",
+    "ingredients": [
+      "Refresco de cola sin azúcar"
+    ],
+    "tags": [
+      "Gaseosa",
+      "Cero Azúcar",
+      "Sin Alcohol"
+    ],
+    "isPopular": false,
+    "pairing": "Disfruta todo el sabor refrescante sin calorías con tu platillo favorito."
+  },
+  {
+    "id": "agua-pura",
+    "name": "Agua Pura",
+    "category": "bebidas",
+    "price": 10.0,
+    "description": "Agua purificada embotellada, fresca, limpia y cristalina.",
+    "image": "/images/agua_pura.png",
+    "badge": "Natural",
+    "badgeType": "blue",
+    "prepTime": "Inmediato",
+    "portion": "1 botella",
+    "ingredients": [
+      "Agua purificada embotellada"
+    ],
+    "tags": [
+      "Agua",
+      "Hidratación",
+      "Saludable"
+    ],
+    "isPopular": false,
+    "pairing": "El acompañamiento más ligero y natural para cualquier tiempo de comida."
+  },
+  {
+    "id": "cafe",
+    "name": "Café",
+    "category": "bebidas",
+    "price": 10.0,
+    "description": "Café recién preparado con aroma intenso y delicioso sabor tradicional cubano.",
+    "image": "/images/cafe_cubano.jpg",
+    "badge": "Caliente",
+    "badgeType": "gold",
+    "prepTime": "3 a 5 minutos",
+    "portion": "1 taza",
+    "ingredients": [
+      "Café tostado selecto",
+      "Agua caliente"
+    ],
+    "tags": [
+      "Café",
+      "Caliente",
+      "Tradicional"
+    ],
+    "isPopular": true,
+    "pairing": "Ideal para comenzar el día o como el cierre perfecto tras degustar tu comida."
+  },
+  {
+    "id": "cerveza",
+    "name": "Cerveza",
+    "category": "bebidas",
+    "price": 15.0,
+    "description": "Cerveza bien helada a tu elección. Elige entre Gallo, Modelo o Corona. ¡Aprovecha nuestra promoción de 2 por Q25!",
+    "image": "/images/cerveza.png",
+    "badge": "Promo 2 x Q25",
+    "badgeType": "red",
+    "prepTime": "Inmediato",
+    "portion": "1 cerveza (Promo 2 x Q25)",
+    "ingredients": [
+      "Gallo",
+      "Modelo",
+      "Corona"
+    ],
+    "tags": [
+      "Cerveza",
+      "Gallo",
+      "Modelo",
+      "Corona",
+      "Promo 2x25",
+      "Con Alcohol"
+    ],
+    "isPopular": true,
+    "pairing": "Excelente para acompañar carnitas fritas, costillas, tacos o tostones montados."
   }
 ]
