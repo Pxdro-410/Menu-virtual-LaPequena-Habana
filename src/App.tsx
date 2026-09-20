@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Utensils, SearchX, Sparkles } from 'lucide-react';
 import dishesData from './data/dishes.json';
@@ -26,6 +26,28 @@ export function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('todos');
   const [selectedDish, setSelectedDish] = useState<Dish | null>(null);
+  const isInitialMount = useRef(true);
+
+  // Posicionamiento en el menú al cambiar de categoría o realizar una búsqueda cuando se está abajo
+  useLayoutEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
+    const anchor = document.getElementById('menu-view-anchor');
+    if (anchor) {
+      const headerHeight =
+        parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 53;
+      const anchorTop = anchor.getBoundingClientRect().top + window.scrollY;
+      const targetScroll = Math.max(0, anchorTop - headerHeight);
+
+      // Si el usuario estaba abajo en los platillos/footer, fijar la vista en el menú/resultados
+      if (window.scrollY > targetScroll + 20) {
+        window.scrollTo(0, targetScroll);
+      }
+    }
+  }, [selectedCategory, searchQuery]);
 
   const dishes = dishesData as Dish[];
 

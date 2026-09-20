@@ -47,32 +47,26 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
   };
 
   const handleCategorySelect = (catId: string) => {
+    onSelectCategory(catId);
+
     const anchor = document.getElementById('menu-view-anchor');
-    const headerHeight =
-      parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 53;
+    if (anchor) {
+      const headerHeight =
+        parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 53;
+      const anchorTop = anchor.getBoundingClientRect().top + window.scrollY;
+      const targetScroll = Math.max(0, anchorTop - headerHeight);
 
-    const anchorTop = anchor ? anchor.getBoundingClientRect().top + window.scrollY : 0;
-    const targetScroll = Math.max(0, anchorTop - headerHeight);
-    const isFar = Math.abs(window.scrollY - targetScroll) > 400;
-
-    if (isFar) {
-      // Al estar muy abajo, saltar de inmediato al objetivo antes de cambiar de categoría.
-      // Esto previene que la reducción repentina de altura del DOM en celulares cancele el scroll
-      // y deje al usuario atrapado en el footer.
-      window.scrollTo(0, targetScroll);
-      onSelectCategory(catId);
-    } else {
-      onSelectCategory(catId);
-      window.scrollTo({
-        top: targetScroll,
-        behavior: 'smooth'
-      });
+      // Si el usuario está arriba (en el hero / header), desplazamiento suave hacia abajo a las categorías
+      if (window.scrollY < targetScroll - 10) {
+        window.scrollTo({
+          top: targetScroll,
+          behavior: 'smooth'
+        });
+      } else {
+        // Si ya está abajo en el menú o en el footer, cambio instantáneo limpio
+        window.scrollTo(0, targetScroll);
+      }
     }
-
-    // Doble verificación en el siguiente cuadro de animación tras el render de React
-    requestAnimationFrame(() => {
-      window.scrollTo(0, targetScroll);
-    });
   };
 
   return (
