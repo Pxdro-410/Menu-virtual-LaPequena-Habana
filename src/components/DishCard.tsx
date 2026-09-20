@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion, type Variants } from 'framer-motion';
 import { Eye, Clock, Sparkles } from 'lucide-react';
 import type { Dish } from '../types/menu';
 import { cn, getAssetUrl } from '../lib/utils';
@@ -8,18 +7,6 @@ interface DishCardProps {
   dish: Dish;
   onSelect: (dish: Dish) => void;
 }
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.35,
-      ease: 'easeOut',
-    },
-  },
-};
 
 export const DishCard: React.FC<DishCardProps> = ({ dish, onSelect }) => {
   const getBadgeClass = (type?: 'red' | 'blue' | 'gold') => {
@@ -35,14 +22,12 @@ export const DishCard: React.FC<DishCardProps> = ({ dish, onSelect }) => {
   };
 
   return (
-    <motion.article
-      variants={cardVariants}
-      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+    <article
       onClick={() => onSelect(dish)}
-      className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer"
+      className="group bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col cursor-pointer touch-manipulation select-none active:scale-[0.98]"
     >
       {/* Image Container with Zoom effect: aspect-square on mobile (portrait & landscape), aspect-[4/3] on desktop */}
-      <div className="relative aspect-square lg:aspect-[4/3] w-full overflow-hidden bg-stone-100">
+      <div className="relative aspect-square lg:aspect-[4/3] w-full overflow-hidden bg-stone-100 pointer-events-none">
         <img
           src={getAssetUrl(dish.image)}
           alt={dish.name}
@@ -85,7 +70,7 @@ export const DishCard: React.FC<DishCardProps> = ({ dish, onSelect }) => {
       </div>
 
       {/* Content: compact padding on mobile (portrait & landscape), p-5 on desktop */}
-      <div className="p-2.5 lg:p-5 flex-1 flex flex-col justify-between">
+      <div className="p-2.5 lg:p-5 flex-1 flex flex-col justify-between pointer-events-none">
         <div>
           {/* Dish title: prominent on mobile (text-xl / 20px), text-2xl on larger screens */}
           <h3 className="font-old-standard text-xl sm:text-2xl lg:text-2xl font-bold text-[#111942] group-hover:text-[#d61327] transition-colors leading-tight line-clamp-2 mb-1.5 lg:mb-2">
@@ -120,24 +105,22 @@ export const DishCard: React.FC<DishCardProps> = ({ dish, onSelect }) => {
           </div>
 
           {/* Mobile action button (portrait & landscape mobile) */}
-          <button
-            type="button"
-            className="lg:hidden inline-flex items-center justify-center gap-1 text-xs font-semibold text-white bg-[#d61327] active:scale-95 px-2.5 py-1.5 rounded-lg shadow-xs shrink-0"
+          <div
+            className="lg:hidden inline-flex items-center justify-center gap-1 text-xs font-semibold text-white bg-[#d61327] px-2.5 py-1.5 rounded-lg shadow-xs shrink-0 select-none"
           >
             <span>Ver</span>
             <Eye className="w-3 h-3" />
-          </button>
+          </div>
 
           {/* Desktop action button */}
-          <button
-            type="button"
-            className="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold text-[#111942] bg-[#f4f6fa] group-hover:bg-[#d61327] group-hover:text-white px-3.5 py-2 rounded-xl transition-colors duration-200 shadow-sm"
+          <div
+            className="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold text-[#111942] bg-[#f4f6fa] group-hover:bg-[#d61327] group-hover:text-white px-3.5 py-2 rounded-xl transition-colors duration-200 shadow-sm select-none"
           >
             <span>Ver detalle</span>
             <Eye className="w-3.5 h-3.5" />
-          </button>
+          </div>
         </div>
       </div>
-    </motion.article>
+    </article>
   );
 };

@@ -46,8 +46,20 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
     }
   };
 
-  const handleCategorySelect = (catId: string) => {
+  const handleCategorySelect = (catId: string, e?: React.MouseEvent<HTMLButtonElement>) => {
+    if (catId === selectedCategory) return;
     onSelectCategory(catId);
+
+    // Centrar suavemente el botón de la categoría en la barra horizontal si está parcialmente oculto
+    if (e?.currentTarget && scrollContainerRef.current) {
+      const button = e.currentTarget;
+      const container = scrollContainerRef.current;
+      const buttonLeft = button.offsetLeft;
+      const buttonWidth = button.offsetWidth;
+      const containerWidth = container.offsetWidth;
+      const scrollTarget = buttonLeft - (containerWidth / 2) + (buttonWidth / 2);
+      container.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+    }
 
     const anchor = document.getElementById('menu-view-anchor');
     if (anchor) {
@@ -57,13 +69,13 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
       const targetScroll = Math.max(0, anchorTop - headerHeight);
 
       // Si el usuario está arriba (en el hero / header), desplazamiento suave hacia abajo a las categorías
-      if (window.scrollY < targetScroll - 10) {
+      if (window.scrollY < targetScroll - 15) {
         window.scrollTo({
           top: targetScroll,
           behavior: 'smooth'
         });
-      } else {
-        // Si ya está abajo en el menú o en el footer, cambio instantáneo limpio
+      } else if (window.scrollY > targetScroll + 60) {
+        // Si el usuario estaba muy abajo en los platillos o footer, reposicionar limpiamente
         window.scrollTo(0, targetScroll);
       }
     }
@@ -78,8 +90,9 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
 
         {/* Left scroll chevron */}
         <button
+          type="button"
           onClick={() => scroll('left')}
-          className="hidden md:flex absolute left-2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-stone-200 items-center justify-center text-stone-600 hover:text-[#111942] hover:bg-stone-50 transition-colors"
+          className="hidden md:flex absolute left-2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-stone-200 items-center justify-center text-stone-600 hover:text-[#111942] hover:bg-stone-50 transition-colors touch-manipulation"
           aria-label="Desplazar categorías a la izquierda"
         >
           <ChevronLeft className="w-4 h-4" />
@@ -98,9 +111,10 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
             return (
               <button
                 key={cat.id}
-                onClick={() => handleCategorySelect(cat.id)}
+                type="button"
+                onClick={(e) => handleCategorySelect(cat.id, e)}
                 className={cn(
-                  "relative flex items-center gap-2 px-4 py-2.5 sm:py-2 rounded-full text-[13px] sm:text-sm font-medium whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer",
+                  "relative flex items-center gap-2 px-4 py-2.5 sm:py-2 rounded-full text-[13px] sm:text-sm font-medium whitespace-nowrap transition-colors duration-150 shrink-0 cursor-pointer touch-manipulation select-none active:scale-95",
                   isSelected
                     ? "text-white shadow-sm"
                     : "text-stone-800 hover:text-[#111942] bg-stone-200/90 hover:bg-stone-300 border border-stone-300/80 shadow-2xs"
@@ -110,12 +124,12 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
                 {isSelected && (
                   <motion.div
                     layoutId="categoryPill"
-                    className="absolute inset-0 bg-[#111942] rounded-full"
-                    transition={{ type: "spring", stiffness: 450, damping: 35 }}
+                    className="absolute inset-0 bg-[#111942] rounded-full pointer-events-none"
+                    transition={{ type: "spring", stiffness: 500, damping: 35 }}
                   />
                 )}
 
-                <span className="relative z-10 flex items-center gap-1.5">
+                <span className="relative z-10 flex items-center gap-1.5 pointer-events-none">
                   <IconComponent className={cn("w-4 h-4", isSelected ? "text-amber-400" : "text-stone-600")} />
                   <span>{cat.shortName}</span>
                   {count > 0 && (
@@ -138,8 +152,9 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
 
         {/* Right scroll chevron */}
         <button
+          type="button"
           onClick={() => scroll('right')}
-          className="hidden md:flex absolute right-2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-stone-200 items-center justify-center text-stone-600 hover:text-[#111942] hover:bg-stone-50 transition-colors"
+          className="hidden md:flex absolute right-2 z-10 w-8 h-8 rounded-full bg-white shadow-md border border-stone-200 items-center justify-center text-stone-600 hover:text-[#111942] hover:bg-stone-50 transition-colors touch-manipulation"
           aria-label="Desplazar categorías a la derecha"
         >
           <ChevronRight className="w-4 h-4" />

@@ -44,6 +44,16 @@ body {
   overflow-x: hidden;
 }
 
+/* Eliminación de retardo táctil de 300ms en celulares */
+button,
+a,
+input,
+[role="button"],
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Safe area padding for landscape phones without white border cutouts */
 @supports (padding-left: env(safe-area-inset-left)) {
   header > div,

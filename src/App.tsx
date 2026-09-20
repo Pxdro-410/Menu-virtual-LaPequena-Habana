@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useLayoutEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Utensils, SearchX, Sparkles } from 'lucide-react';
 import dishesData from './data/dishes.json';
 import type { Dish } from './types/menu';
@@ -12,12 +12,13 @@ import { Footer } from './components/Footer';
 import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
 import { CATEGORIES } from './data/categories';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
+const containerVariants: Variants = {
+  hidden: { opacity: 0.6 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.05,
+      duration: 0.12,
+      ease: 'easeOut',
     },
   },
 };
@@ -43,7 +44,7 @@ export function App() {
       const targetScroll = Math.max(0, anchorTop - headerHeight);
 
       // Si el usuario estaba abajo en los platillos/footer, fijar la vista en el menú/resultados
-      if (window.scrollY > targetScroll + 20) {
+      if (window.scrollY > targetScroll + 60) {
         window.scrollTo(0, targetScroll);
       }
     }

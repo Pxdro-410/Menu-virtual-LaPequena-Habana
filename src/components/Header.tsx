@@ -41,7 +41,9 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
         parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 53;
       const anchorTop = anchor.getBoundingClientRect().top + window.scrollY;
       const targetScroll = Math.max(0, anchorTop - headerHeight);
-      window.scrollTo(0, targetScroll);
+      if (Math.abs(window.scrollY - targetScroll) > 20) {
+        window.scrollTo(0, targetScroll);
+      }
     }
   };
 
@@ -162,18 +164,7 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
               <input
                 type="text"
                 value={searchQuery}
-                onFocus={() => {
-                  const anchor = document.getElementById('menu-view-anchor');
-                  if (anchor) {
-                    const headerHeight =
-                      parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 53;
-                    const anchorTop = anchor.getBoundingClientRect().top + window.scrollY;
-                    const targetScroll = Math.max(0, anchorTop - headerHeight);
-                    if (window.scrollY > targetScroll + 20) {
-                      window.scrollTo(0, targetScroll);
-                    }
-                  }
-                }}
+                onFocus={scrollToMenu}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
                   scrollToMenu();
