@@ -32,7 +32,7 @@ export const HeroBanner: React.FC = () => {
   const currentSlide = HERO_SLIDES[currentIndex];
 
   return (
-    <section className="relative overflow-hidden bg-[#0a0f26] text-white py-6 sm:py-10 md:py-14 px-4 sm:px-6 lg:px-8 border-b border-[#1c275c]">
+    <section className="relative z-10 overflow-hidden bg-[#0a0f26] text-white py-6 sm:py-10 md:py-14 px-4 sm:px-6 lg:px-8 border-b border-[#1c275c]">
       {/* Animated Background Carousel */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
         <AnimatePresence mode="sync">
@@ -72,9 +72,12 @@ export const HeroBanner: React.FC = () => {
           El Sabor Auténtico de La Habana
         </h1>
 
-        {/* Subtitle (Desktop original text and font sizes) */}
+        {/* Subtitle (Shortened on mobile, full on desktop) */}
         <p className="max-w-2xl mx-auto text-stone-100 text-xs sm:text-base lg:text-lg font-light leading-relaxed mb-3 md:mb-6 drop-shadow-xs">
-          Bienvenido a nuestro menú virtual. Explora nuestras recetas históricas y más comunes de la isla, preparadas en el momento con ingredientes frescos y nuestra sazón de la casa.
+          <span className="sm:hidden">Bienvenido a nuestro menú virtual</span>
+          <span className="hidden sm:inline">
+            Bienvenido a nuestro menú virtual. Explora nuestras recetas históricas y más comunes de la isla, preparadas en el momento con ingredientes frescos y nuestra sazón de la casa.
+          </span>
         </p>
 
         {/* Highlights bar (Desktop/Tablet original - hidden on mobile) */}

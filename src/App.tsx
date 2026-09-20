@@ -72,6 +72,9 @@ export function App() {
       {/* Hero Banner with Cuban charm */}
       <HeroBanner />
 
+      {/* Anchor to scroll directly to the category menu view */}
+      <div id="menu-view-anchor" />
+
       {/* Sticky Category Navigation*/}
       <CategoryNav
         selectedCategory={selectedCategory}
@@ -83,9 +86,9 @@ export function App() {
       />
 
       {/* Body / Main Content */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 md:py-12">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 lg:py-12">
         {/* Section title & count */}
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-4 md:mb-8 border-b border-stone-200/80 pb-3 md:pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-4 lg:mb-8 border-b border-stone-200/80 pb-3 lg:pb-4">
           <div>
             <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#d61327] font-bold">
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
@@ -108,14 +111,14 @@ export function App() {
           </div>
         </div>
 
-        {/* Dish Grid or Empty State: 2 columns on mobile, 3 columns on desktop */}
+        {/* Dish Grid or Empty State: 2 columns on mobile (portrait & landscape), 3 columns on desktop */}
         {filteredDishes.length > 0 ? (
           <motion.div
             key={`${selectedCategory}-${searchQuery}`}
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8"
+            className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-8"
           >
             {filteredDishes.map((dish) => (
               <DishCard
