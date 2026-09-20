@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Search, X, MessageCircle, MapPin, Clock } from 'lucide-react';
 import { getWhatsAppGeneralUrl, cn } from '../lib/utils';
 
@@ -9,9 +9,33 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        const height = headerRef.current.offsetHeight;
+        document.documentElement.style.setProperty('--header-height', `${height}px`);
+      }
+    };
+
+    updateHeaderHeight();
+
+    const resizeObserver = new ResizeObserver(updateHeaderHeight);
+    if (headerRef.current) {
+      resizeObserver.observe(headerRef.current);
+    }
+
+    window.addEventListener('resize', updateHeaderHeight);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', updateHeaderHeight);
+    };
+  }, []);
 
   return (
-    <header className="w-full bg-[#111942] text-[#fcfafa] border-b border-[#1c275c] shadow-md transition-all sticky top-0 z-40">
+    <header ref={headerRef} className="w-full bg-[#111942] text-[#fcfafa] border-b border-[#1c275c] shadow-md transition-all sticky top-0 z-40">
       {/* Top micro banner (Desktop & Tablet only) */}
       <div className="hidden sm:block bg-[#0a0f28] py-1 px-3 sm:px-4 text-[11px] sm:text-xs tracking-wide text-stone-300 border-b border-white/5">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">

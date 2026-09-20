@@ -18,9 +18,16 @@
 }
 
 :root {
+  --header-height: 53px;
   font-family: "Plus Jakarta Sans", "Gilroy", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: #111942;
   background-color: #fcfafa;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --header-height: 105px;
+  }
 }
 
 body {

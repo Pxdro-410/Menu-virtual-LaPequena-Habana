@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  UtensilsCrossed, 
-  Flame, 
-  Sandwich, 
-  Sparkles, 
-  Salad, 
-  CakeSlice, 
+import {
+  UtensilsCrossed,
+  Flame,
+  Sandwich,
+  Sparkles,
+  Salad,
+  CakeSlice,
   GlassWater,
   Layers,
   ChevronLeft,
@@ -46,10 +46,27 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
     }
   };
 
+  const handleCategorySelect = (catId: string) => {
+    onSelectCategory(catId);
+    const anchor = document.getElementById('menu-view-anchor');
+    if (anchor) {
+      const headerHeight =
+        parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 53;
+      const anchorTop = anchor.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: Math.max(0, anchorTop - headerHeight),
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <nav className="sticky top-[53px] sm:top-[77px] z-30 bg-[#fcfafa]/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm py-2 sm:py-2.5 transition-all">
+    <nav
+      className="sticky z-30 bg-[#fcfafa]/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm py-2.5 sm:py-2.5 transition-all"
+      style={{ top: 'var(--header-height, 53px)' }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative flex items-center">
-        
+
         {/* Left scroll chevron */}
         <button
           onClick={() => scroll('left')}
@@ -72,12 +89,12 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
             return (
               <button
                 key={cat.id}
-                onClick={() => onSelectCategory(cat.id)}
+                onClick={() => handleCategorySelect(cat.id)}
                 className={cn(
-                  "relative flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer",
+                  "relative flex items-center gap-2 px-4 py-2.5 sm:py-2 rounded-full text-[13px] sm:text-sm font-medium whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer",
                   isSelected
                     ? "text-white shadow-sm"
-                    : "text-stone-600 hover:text-[#111942] hover:bg-stone-200/60 bg-stone-100/80"
+                    : "text-stone-800 hover:text-[#111942] bg-stone-200/90 hover:bg-stone-300 border border-stone-300/80 shadow-2xs"
                 )}
               >
                 {/* Framer motion active background */}
@@ -90,7 +107,7 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
                 )}
 
                 <span className="relative z-10 flex items-center gap-1.5">
-                  <IconComponent className={cn("w-4 h-4", isSelected ? "text-amber-400" : "text-stone-500")} />
+                  <IconComponent className={cn("w-4 h-4", isSelected ? "text-amber-400" : "text-stone-600")} />
                   <span>{cat.shortName}</span>
                   {count > 0 && (
                     <span
@@ -98,7 +115,7 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
                         "ml-1 text-[11px] px-1.5 py-0.2 rounded-full font-semibold",
                         isSelected
                           ? "bg-[#d61327] text-white"
-                          : "bg-stone-200 text-stone-600"
+                          : "bg-stone-300 text-stone-700"
                       )}
                     >
                       {count}
