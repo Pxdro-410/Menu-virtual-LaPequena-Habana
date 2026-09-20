@@ -34,6 +34,27 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
     };
   }, []);
 
+  const scrollToMenu = () => {
+    const anchor = document.getElementById('menu-view-anchor');
+    if (anchor) {
+      const headerHeight =
+        parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 53;
+      const anchorTop = anchor.getBoundingClientRect().top + window.scrollY;
+      const targetScroll = Math.max(0, anchorTop - headerHeight);
+      window.scrollTo(0, targetScroll);
+    }
+  };
+
+  const handleToggleMobileSearch = () => {
+    setIsMobileSearchOpen((prev) => {
+      const next = !prev;
+      if (next) {
+        scrollToMenu();
+      }
+      return next;
+    });
+  };
+
   return (
     <header ref={headerRef} className="w-full bg-[#111942] text-[#fcfafa] border-b border-[#1c275c] shadow-md transition-all sticky top-0 z-40">
       {/* Top micro banner (Desktop & Tablet only) */}
@@ -94,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
             {/* Lupa (Buscar) */}
             <button
               type="button"
-              onClick={() => setIsMobileSearchOpen((prev) => !prev)}
+              onClick={handleToggleMobileSearch}
               className={cn(
                 "w-8 h-8 rounded-full flex items-center justify-center transition-all active:scale-95 shadow-sm border border-white/15",
                 isMobileSearchOpen || searchQuery
@@ -141,7 +162,22 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
               <input
                 type="text"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => {
+                  const anchor = document.getElementById('menu-view-anchor');
+                  if (anchor) {
+                    const headerHeight =
+                      parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 53;
+                    const anchorTop = anchor.getBoundingClientRect().top + window.scrollY;
+                    const targetScroll = Math.max(0, anchorTop - headerHeight);
+                    if (window.scrollY > targetScroll + 20) {
+                      window.scrollTo(0, targetScroll);
+                    }
+                  }
+                }}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  scrollToMenu();
+                }}
                 placeholder="Buscar por platillo o ingrediente..."
                 className="w-full pl-10 pr-9 py-2 bg-[#1c275c]/90 text-sm text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/15 focus:outline-none focus:ring-2 focus:ring-[#d61327] focus:border-transparent transition-all shadow-inner"
               />
@@ -193,9 +229,13 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
                 type="text"
                 autoFocus
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={scrollToMenu}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  scrollToMenu();
+                }}
                 placeholder="Buscar por platillo o ingrediente..."
-                className="w-full pl-9 pr-8 py-1.5 bg-[#1c275c] text-xs text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#d61327]"
+                className="w-full pl-9 pr-8 py-2 bg-[#1c275c] text-base text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#d61327]"
               />
               {searchQuery ? (
                 <button
