@@ -47,17 +47,32 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
   };
 
   const handleCategorySelect = (catId: string) => {
-    onSelectCategory(catId);
     const anchor = document.getElementById('menu-view-anchor');
-    if (anchor) {
-      const headerHeight =
-        parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 53;
-      const anchorTop = anchor.getBoundingClientRect().top + window.scrollY;
+    const headerHeight =
+      parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 53;
+
+    const anchorTop = anchor ? anchor.getBoundingClientRect().top + window.scrollY : 0;
+    const targetScroll = Math.max(0, anchorTop - headerHeight);
+    const isFar = Math.abs(window.scrollY - targetScroll) > 400;
+
+    if (isFar) {
+      // Al estar muy abajo, saltar de inmediato al objetivo antes de cambiar de categoría.
+      // Esto previene que la reducción repentina de altura del DOM en celulares cancele el scroll
+      // y deje al usuario atrapado en el footer.
+      window.scrollTo(0, targetScroll);
+      onSelectCategory(catId);
+    } else {
+      onSelectCategory(catId);
       window.scrollTo({
-        top: Math.max(0, anchorTop - headerHeight),
+        top: targetScroll,
         behavior: 'smooth'
       });
     }
+
+    // Doble verificación en el siguiente cuadro de animación tras el render de React
+    requestAnimationFrame(() => {
+      window.scrollTo(0, targetScroll);
+    });
   };
 
   return (

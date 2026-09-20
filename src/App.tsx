@@ -86,7 +86,7 @@ export function App() {
       />
 
       {/* Body / Main Content */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 lg:py-12">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 lg:py-12 min-h-[50vh]">
         {/* Section title & count */}
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-4 lg:mb-8 border-b border-stone-200/80 pb-3 lg:pb-4">
           <div>
