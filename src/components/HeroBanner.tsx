@@ -5,9 +5,7 @@ import { getAssetUrl } from '../lib/utils';
 export const HeroBanner: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#000000] via-[#16204f] to-[#000000] text-white py-6 sm:py-10 md:py-14 px-4 sm:px-6 lg:px-8 border-b border-[#1c275c]">
-      {/* Decorative background subtle glow */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#d61327]/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#fcfafa]/10 rounded-full blur-3xl pointer-events-none"></div>
+
 
       {/* Cuban Flag diffused watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
