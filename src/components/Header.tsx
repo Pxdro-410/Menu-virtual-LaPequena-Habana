@@ -9,7 +9,23 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) => {
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+  const [localSearch, setLocalSearch] = useState(searchQuery);
   const headerRef = useRef<HTMLElement>(null);
+  const mobileInputRef = useRef<HTMLInputElement>(null);
+  const desktopInputRef = useRef<HTMLInputElement>(null);
+  const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    setLocalSearch(searchQuery);
+  }, [searchQuery]);
+
+  useEffect(() => {
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     let lastHeight = 0;
@@ -35,16 +51,85 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
     };
   }, []);
 
-  const scrollToMenu = () => {
+  const scrollToMenu = (smooth = true) => {
     const anchor = document.getElementById('menu-view-anchor');
     if (anchor) {
       const headerHeight =
         parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 53;
       const anchorTop = anchor.getBoundingClientRect().top + window.scrollY;
       const targetScroll = Math.max(0, anchorTop - headerHeight);
-      if (Math.abs(window.scrollY - targetScroll) > 20) {
-        window.scrollTo(0, targetScroll);
+      if (Math.abs(window.scrollY - targetScroll) > 10) {
+        window.scrollTo({
+          top: targetScroll,
+          behavior: smooth ? 'smooth' : 'auto'
+        });
       }
+    }
+  };
+
+  const triggerSearchCommit = (value: string, shouldScroll = false) => {
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+      debounceTimerRef.current = null;
+    }
+    setSearchQuery(value);
+    if (shouldScroll) {
+      setTimeout(() => {
+        scrollToMenu(true);
+      }, 60);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setLocalSearch(val);
+
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+
+    // Pequeño delay (debounce de 300ms) para que no se actualice la página en cada letra tecleada
+    debounceTimerRef.current = setTimeout(() => {
+      triggerSearchCommit(val, true);
+    }, 300);
+  };
+
+  const handleClearSearch = () => {
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+      debounceTimerRef.current = null;
+    }
+    setLocalSearch('');
+    setSearchQuery('');
+    setTimeout(() => {
+      scrollToMenu(true);
+    }, 60);
+  };
+
+  const handleSearchSubmit = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+
+    // Ocultar teclado en celular des-enfocando el input
+    mobileInputRef.current?.blur();
+    desktopInputRef.current?.blur();
+
+    // Confirmar búsqueda de inmediato
+    triggerSearchCommit(localSearch, true);
+
+    // Reposicionar al inicio del menú con suavidad tras cerrarse el teclado
+    setTimeout(() => {
+      scrollToMenu(true);
+    }, 160);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      (e.target as HTMLInputElement).blur();
+      triggerSearchCommit(localSearch, true);
+      setTimeout(() => {
+        scrollToMenu(true);
+      }, 160);
     }
   };
 
@@ -52,7 +137,10 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
     setIsMobileSearchOpen((prev) => {
       const next = !prev;
       if (next) {
-        scrollToMenu();
+        setTimeout(() => {
+          scrollToMenu(true);
+          mobileInputRef.current?.focus();
+        }, 60);
       }
       return next;
     });
@@ -158,28 +246,32 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
 
           {/* Desktop Search bar & Action Buttons (Visible on md+) */}
           <div className="hidden md:flex items-center gap-3 flex-1 max-w-md lg:max-w-lg ml-auto">
-            <div className="relative w-full">
+            <form action="#" onSubmit={handleSearchSubmit} className="relative w-full">
               <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                 <Search className="h-4 w-4 text-stone-400" />
               </div>
               <input
-                type="text"
-                value={searchQuery}
-                onFocus={scrollToMenu}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                ref={desktopInputRef}
+                type="search"
+                enterKeyHint="search"
+                value={localSearch}
+                onFocus={() => scrollToMenu(true)}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
                 placeholder="Buscar por platillo o ingrediente..."
-                className="w-full pl-10 pr-9 py-2 bg-[#1c275c]/90 text-sm text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/15 focus:outline-none focus:ring-2 focus:ring-[#d61327] focus:border-transparent transition-all shadow-inner"
+                className="w-full pl-10 pr-9 py-2 bg-[#1c275c]/90 text-sm text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/15 focus:outline-none focus:ring-2 focus:ring-[#d61327] focus:border-transparent transition-all shadow-inner [&::-webkit-search-cancel-button]:hidden"
               />
-              {searchQuery && (
+              {localSearch && (
                 <button
-                  onClick={() => setSearchQuery('')}
+                  type="button"
+                  onClick={handleClearSearch}
                   className="absolute inset-y-0 right-0 pr-3 flex items-center text-stone-400 hover:text-white"
                   title="Limpiar búsqueda"
                 >
                   <X className="h-4 w-4" />
                 </button>
               )}
-            </div>
+            </form>
 
             {/* Desktop Eventos button */}
             <a
@@ -209,36 +301,48 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
 
         {/* Mobile Search Bar Dropdown */}
         {isMobileSearchOpen && (
-          <div className="md:hidden mt-2 pt-2 border-t border-white/10 animate-in fade-in duration-200">
+          <form
+            action="#"
+            onSubmit={handleSearchSubmit}
+            className="md:hidden mt-2 pt-2 border-t border-white/10 animate-in fade-in duration-200"
+          >
             <div className="relative w-full">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Search className="h-3.5 w-3.5 text-stone-400" />
               </div>
               <input
-                type="text"
+                ref={mobileInputRef}
+                type="search"
                 autoFocus
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                enterKeyHint="search"
+                inputMode="search"
+                value={localSearch}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
                 placeholder="Buscar por platillo o ingrediente..."
-                className="w-full pl-9 pr-8 py-2 bg-[#1c275c] text-base text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#d61327]"
+                className="w-full pl-9 pr-8 py-2 bg-[#1c275c] text-base text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#d61327] touch-manipulation [&::-webkit-search-cancel-button]:hidden"
               />
-              {searchQuery ? (
+              {localSearch ? (
                 <button
-                  onClick={() => setSearchQuery('')}
-                  className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-stone-400 hover:text-white"
+                  type="button"
+                  onClick={handleClearSearch}
+                  className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-stone-400 hover:text-white touch-manipulation"
+                  aria-label="Limpiar búsqueda"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
               ) : (
                 <button
+                  type="button"
                   onClick={() => setIsMobileSearchOpen(false)}
-                  className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-stone-400 hover:text-white"
+                  className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-stone-400 hover:text-white touch-manipulation"
+                  aria-label="Cerrar búsqueda"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
               )}
             </div>
-          </div>
+          </form>
         )}
       </div>
     </header>
