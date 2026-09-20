@@ -111,14 +111,14 @@ export function App() {
           </div>
         </div>
 
-        {/* Dish Grid or Empty State: 2 columns on mobile (portrait & landscape), 3 columns on desktop */}
+        {/* Dish Grid or Empty State: 2 columns on portrait mobile, 3 columns on landscape mobile & desktop */}
         {filteredDishes.length > 0 ? (
           <motion.div
             key={`${selectedCategory}-${searchQuery}`}
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-8"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-8"
           >
             {filteredDishes.map((dish) => (
               <DishCard

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Search, X, MessageCircle, MapPin, Clock } from 'lucide-react';
-import { getWhatsAppGeneralUrl, cn } from '../lib/utils';
+import { getWhatsAppGeneralUrl, getAssetUrl, cn } from '../lib/utils';
 
 interface HeaderProps {
   searchQuery: string;
@@ -72,8 +72,12 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
 
           {/* Logo & Identity */}
           <a href="#" className="flex items-center gap-2 sm:gap-3 group shrink-0">
-            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-[#d61327] to-[#8f1b27] flex items-center justify-center shadow-md border-2 border-amber-400/40 group-hover:scale-105 transition-transform duration-300">
-              <span className="text-white font-quintessential text-xl sm:text-2xl font-bold tracking-wider">PH</span>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shadow-md border-2 border-amber-400/50 group-hover:scale-105 transition-transform duration-300 bg-white shrink-0 flex items-center justify-center p-0.5">
+              <img
+                src={getAssetUrl('/favicon.png')}
+                alt="Logo La Pequeña Habana"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-quintessential text-lg sm:text-2xl md:text-3xl font-bold text-[#fcfafa] tracking-wide leading-none drop-shadow-sm">

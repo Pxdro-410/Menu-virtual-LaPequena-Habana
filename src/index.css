@@ -30,6 +30,11 @@
   }
 }
 
+/* Edge-to-edge layout & safe-area handling for mobile landscape */
+html {
+  background-color: #0a0f28;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -37,6 +42,16 @@ body {
   background-color: #fcfafa;
   color: #111942;
   overflow-x: hidden;
+}
+
+/* Safe area padding for landscape phones without white border cutouts */
+@supports (padding-left: env(safe-area-inset-left)) {
+  header > div,
+  nav > div,
+  main {
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
 }
 
 /* Font helpers */
