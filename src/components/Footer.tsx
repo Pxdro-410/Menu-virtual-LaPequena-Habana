@@ -1,6 +1,6 @@
 import React from 'react';
 import { MessageCircle, MapPin, Clock, Phone, Mail } from 'lucide-react';
-import { getWhatsAppGeneralUrl } from '../lib/utils';
+import { getWhatsAppGeneralUrl, getAssetUrl } from '../lib/utils';
 
 export const Footer: React.FC = () => {
   return (
@@ -14,8 +14,12 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand & Story */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#d61327] to-[#8f1b27] flex items-center justify-center shadow-lg border border-amber-400/40">
-                <span className="text-white font-quintessential text-xl font-bold">PH</span>
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden shadow-md border-2 border-amber-400/50 bg-white shrink-0 flex items-center justify-center p-0.5">
+                <img
+                  src={getAssetUrl('/favicon.png')}
+                  alt="Logo La Pequeña Habana"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="font-quintessential text-2xl font-bold tracking-wide">
                 La Pequeña Habana
