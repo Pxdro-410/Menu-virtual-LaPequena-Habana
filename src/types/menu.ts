@@ -1,7 +1,7 @@
 export interface Dish {
   id: string;
   name: string;
-  category: 'entradas' | 'platos-fuertes' | 'sandwiches' | 'guarniciones' | 'postres' | 'bebidas';
+  category: string;
   price: number; // En Quetzales (GTQ)
   description: string;
   image: string;
@@ -13,6 +13,7 @@ export interface Dish {
   tags: string[];
   isPopular?: boolean;
   pairing?: string;
+  recommendation?: string;
 }
 
 export interface CategoryOption {

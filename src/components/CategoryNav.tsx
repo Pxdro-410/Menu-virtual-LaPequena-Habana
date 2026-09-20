@@ -8,6 +8,7 @@ import {
   Salad, 
   CakeSlice, 
   GlassWater,
+  Layers,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
@@ -27,7 +28,8 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Sparkles,
   Salad,
   CakeSlice,
-  GlassWater
+  GlassWater,
+  Layers
 };
 
 export const CategoryNav: React.FC<CategoryNavProps> = ({
