@@ -83,7 +83,7 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
 
   return (
     <nav
-      className="sticky z-30 bg-[#fcfafa]/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm py-2.5 sm:py-2.5 transition-all"
+      className="sticky z-30 bg-[#fcfafa]/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm py-2.5 sm:py-2.5"
       style={{ top: 'var(--header-height, 53px)' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative flex items-center">

@@ -54,6 +54,15 @@ input,
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Estabilidad visual para el header y navbar sticky en móviles al abrir el teclado virtual */
+header,
+nav {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
 /* Safe area padding for landscape phones without white border cutouts */
 @supports (padding-left: env(safe-area-inset-left)) {
   header > div,

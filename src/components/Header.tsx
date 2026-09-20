@@ -12,10 +12,14 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    let lastHeight = 0;
     const updateHeaderHeight = () => {
       if (headerRef.current) {
         const height = headerRef.current.offsetHeight;
-        document.documentElement.style.setProperty('--header-height', `${height}px`);
+        if (height > 0 && height !== lastHeight) {
+          lastHeight = height;
+          document.documentElement.style.setProperty('--header-height', `${height}px`);
+        }
       }
     };
 
@@ -26,11 +30,8 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
       resizeObserver.observe(headerRef.current);
     }
 
-    window.addEventListener('resize', updateHeaderHeight);
-
     return () => {
       resizeObserver.disconnect();
-      window.removeEventListener('resize', updateHeaderHeight);
     };
   }, []);
 
@@ -58,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
   };
 
   return (
-    <header ref={headerRef} className="w-full bg-[#111942] text-[#fcfafa] border-b border-[#1c275c] shadow-md transition-all sticky top-0 z-40">
+    <header ref={headerRef} className="w-full bg-[#111942] text-[#fcfafa] border-b border-[#1c275c] shadow-md sticky top-0 z-40">
       {/* Top micro banner (Desktop & Tablet only) */}
       <div className="hidden sm:block bg-[#0a0f28] py-1 px-3 sm:px-4 text-[11px] sm:text-xs tracking-wide text-stone-300 border-b border-white/5">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
@@ -165,10 +166,7 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
                 type="text"
                 value={searchQuery}
                 onFocus={scrollToMenu}
-                onChange={(e) => {
-                  setSearchQuery(e.target.value);
-                  scrollToMenu();
-                }}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Buscar por platillo o ingrediente..."
                 className="w-full pl-10 pr-9 py-2 bg-[#1c275c]/90 text-sm text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/15 focus:outline-none focus:ring-2 focus:ring-[#d61327] focus:border-transparent transition-all shadow-inner"
               />
@@ -220,11 +218,7 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, setSearchQuery }) =
                 type="text"
                 autoFocus
                 value={searchQuery}
-                onFocus={scrollToMenu}
-                onChange={(e) => {
-                  setSearchQuery(e.target.value);
-                  scrollToMenu();
-                }}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Buscar por platillo o ingrediente..."
                 className="w-full pl-9 pr-8 py-2 bg-[#1c275c] text-base text-[#fcfafa] placeholder-stone-400 rounded-full border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#d61327]"
               />

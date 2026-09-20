@@ -36,6 +36,11 @@ export function App() {
       return;
     }
 
+    // Si el usuario está escribiendo activamente con el teclado, jamás forzar scroll para no hacer parpadear la pantalla ni esconder el header
+    if (document.activeElement?.tagName === 'INPUT') {
+      return;
+    }
+
     const anchor = document.getElementById('menu-view-anchor');
     if (anchor) {
       const headerHeight =
