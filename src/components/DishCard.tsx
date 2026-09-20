@@ -87,8 +87,8 @@ export const DishCard: React.FC<DishCardProps> = ({ dish, onSelect }) => {
       {/* Content: compact padding on mobile (portrait & landscape), p-5 on desktop */}
       <div className="p-2.5 lg:p-5 flex-1 flex flex-col justify-between">
         <div>
-          {/* Dish title: larger on mobile (text-[15px]), text-lg lg:text-xl on desktop */}
-          <h3 className="font-old-standard text-[15px] sm:text-base lg:text-xl font-bold text-[#111942] group-hover:text-[#d61327] transition-colors leading-tight lg:leading-snug line-clamp-2 mb-1.5 lg:mb-2">
+          {/* Dish title: prominent on mobile (text-lg / 18px), text-lg lg:text-xl on desktop */}
+          <h3 className="font-old-standard text-lg sm:text-xl lg:text-xl font-bold text-[#111942] group-hover:text-[#d61327] transition-colors leading-snug line-clamp-2 mb-1.5 lg:mb-2">
             {dish.name}
           </h3>
 
